@@ -43,19 +43,6 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
-        'wordpress' => [ // for WordPress database (used by Corcel)
-            'driver'    => env('WORDPRESS_DB_DRIVER'),
-            'host'      => env('WORDPRESS_DB_HOST'),
-            'database'  => env('WORDPRESS_DB_NAME'),
-            'username'  => env('WORDPRESS_DB_USER'),
-            'password'  => env('WORDPRESS_DB_PASSWORD'),
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => env('WORDPRESS_TABLE_PREFIX'),
-            'strict'    => false,
-            'engine'    => null,
-        ],
-
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),

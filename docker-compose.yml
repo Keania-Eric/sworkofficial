@@ -77,17 +77,6 @@ services:
             - '/dev/shm:/dev/shm'
        networks:
            - sail
-    wordpress:
-      restart: always
-      ports:
-        - 9000:80
-      image: wordpress
-      env_file:
-        - wordpress-variables.env
-      volumes:
-        - wordpress:/var/www/html
-      networks:
-        - sail
 networks:
     sail:
         driver: bridge
@@ -98,4 +87,4 @@ volumes:
         driver: local
     sailmeilisearch:
         driver: local
-    wordpress:
+
