@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
-    Fastland- Landing Page Template for SaaS, Startup & Agency
+    {{\Corcel\Model\Option::get('blogname')}}- {{\Corcel\Model\Option::get('blogdescription')}}
   </title>
   <link rel="shortcut icon" href="{{asset('image/png/favicon.png')}}" type="image/x-icon">
   <!-- Bootstrap , fonts & icons  -->
