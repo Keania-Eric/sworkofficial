@@ -4,6 +4,7 @@
 
 <div class="blog-area blog-area--reguler bg-default-6">
       <div class="container">
+
         <div class="row justify-content-center">
           <div class="col-xl-7">
             <div class="section-title section-title--innerpage text-center pb-7">
@@ -12,6 +13,7 @@
             </div>
           </div>
         </div>
+        
         <div class="row justify-content-center">
           <div class="col-xl-12 col-lg-10">
             <div class="blogs-post blogs-post--big">
