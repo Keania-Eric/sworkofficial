@@ -44,7 +44,7 @@ return [
             'id' => 'ID',
             'title' => 'Title',
             'slug' => 'Slug',
-            'perex' => 'Perex',
+            'perex' => 'Post Content',
             'published_at' => 'Published at',
             'enabled' => 'Enabled',
             
@@ -68,11 +68,27 @@ return [
             'perex' => 'Perex',
             'image' => 'Image',
             'featured' => 'Featured',
-            'post_category_id' => 'Post category',
+            'post_category_id' => 'Category',
             'author' => 'Author',
             'intro_text' => 'Intro text',
             'published_at' => 'Published at',
             'enabled' => 'Enabled',
+            
+        ],
+    ],
+
+    'post-category' => [
+        'title' => 'Post Categories',
+
+        'actions' => [
+            'index' => 'Post Categories',
+            'create' => 'New Post Category',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
             
         ],
     ],

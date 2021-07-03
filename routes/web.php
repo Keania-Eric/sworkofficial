@@ -29,7 +29,7 @@ Route::get('/project-management', [SiteController::class, 'projectManagement'])-
 
 // Blog Routes
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog/single', [BlogController::class, 'single'])->name('blog.single');
+Route::get('/blog/{slug}', [BlogController::class, 'single'])->name('blog.single');
 
 
 /* Auto-generated admin routes */
@@ -69,6 +69,21 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'PostsController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{post}',                                      'PostsController@update')->name('update');
             Route::delete('/{post}',                                    'PostsController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('post-categories')->name('post-categories/')->group(static function() {
+            Route::get('/',                                             'PostCategoriesController@index')->name('index');
+            Route::get('/create',                                       'PostCategoriesController@create')->name('create');
+            Route::post('/',                                            'PostCategoriesController@store')->name('store');
+            Route::get('/{postCategory}/edit',                          'PostCategoriesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'PostCategoriesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{postCategory}',                              'PostCategoriesController@update')->name('update');
+            Route::delete('/{postCategory}',                            'PostCategoriesController@destroy')->name('destroy');
         });
     });
 });

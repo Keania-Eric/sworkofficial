@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\PostCategory;
 use Illuminate\Http\Request;
 
 
@@ -12,7 +13,7 @@ class BlogController extends Controller
 
     public function index()
     {
-        $posts  = Post::latest()->take(10)->get();
+        $posts  = Post::published()->latest()->paginate(2);
         $featuredPost = Post::whereFeatured(true)->first();
         return view('blog.index', ['posts'=> $posts, 'featuredPost'=> $featuredPost]);
     }
@@ -20,8 +21,11 @@ class BlogController extends Controller
 
     public function single(Request $request)
     {
-        return view('blog.single');
-    }
+        $post = Post::whereSlug($request->slug)->first();
+        if(!$post) { abort(404);}
+        $categories = PostCategory::all();
+        return view('blog.single', ['post'=> $post, 'categories'=> $categories]);
 
+    }
     
 }

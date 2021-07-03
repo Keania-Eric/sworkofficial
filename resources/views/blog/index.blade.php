@@ -13,165 +13,68 @@
             </div>
           </div>
         </div>
-        
+
+        @if($featuredPost)
+          <!-- Featured blog post starts here -->
+          <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-10">
+              <div class="blogs-post blogs-post--big">
+                <img class="w-100" src="./image/png/blog-post-1.png" alt="">
+                <div class="hover-content">
+                  <div class="hover-content__top d-flex align-items-center dark-mode-texts">
+                    <a href="{{route('blog.single', ['slug'=>$featuredPost->slug])}}" class="hover-content__badge badge bg-primary">{{$featuredPost->category->name}}</a>
+                    <a href="{{route('blog.single', ['slug'=>$featuredPost->slug])}}" class="hover-content__date">{{date('j F, Y,', strtotime($featuredPost->published_at))}}</a>
+                  </div>
+                  <a href="{{route('blog.single', ['slug'=>$featuredPost->slug])}}" class="hover-content__title">{{$featuredPost->intro_text}}</a>
+                  <ul class="hover-content__post-meta list-unstyled">
+                    <li>
+                      <a href="{{route('blog.single', ['slug'=>$featuredPost->slug])}}">
+                        <i class="fa fa-user"></i>{{$featuredPost->author}}</a>
+                      <a href="{{route('blog.single', ['slug'=>$featuredPost->slug])}}">
+                        <i class="fa fa-heart"></i>21K</a>
+                      <a href="{{route('blog.single', ['slug'=>$featuredPost->slug])}}">
+                        <i class="fa fa-comments"></i>305</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Featured blog post -->
+        @endif
+
         <div class="row justify-content-center">
-          <div class="col-xl-12 col-lg-10">
-            <div class="blogs-post blogs-post--big">
-              <img class="w-100" src="./image/png/blog-post-1.png" alt="">
-              <div class="hover-content">
-                <div class="hover-content__top d-flex align-items-center dark-mode-texts">
-                  <a href="/blog-details.html" class="hover-content__badge badge bg-primary">Gadgets</a>
-                  <a href="/blog-details.html" class="hover-content__date">01 June, 2020</a>
+
+          @foreach($posts as $post)
+            <!-- Blog post outline starts -->
+            <div class="col-xl-4 col-lg-9 col-md-7 col-xs-10">
+              <div class="blogs-post blogs-post--small">
+                <img class="w-100" src="./image/png/blog-post-2.png" alt="">
+                <div class="hover-content">
+                  <div class="hover-content__top d-flex align-items-center dark-mode-texts">
+                    <a href="{{route('blog.single', ['slug'=>$post->slug])}}" class="hover-content__badge badge bg-primary">{{$post->category->name}}</a>
+                    <a href="{{route('blog.single', ['slug'=>$post->slug])}}" class="hover-content__date">{{$post->author}}</a>
+                  </div>
+                  <a href="{{route('blog.single', ['slug'=>$post->slug])}}" class="hover-content__title">{{$post->intro_text}}</a>
+                  <ul class="hover-content__post-meta list-unstyled">
+                    <li>
+                      <a href="{{route('blog.single', ['slug'=>$post->slug])}}">
+                        <i class="fa fa-user"></i>{{$post->author}}</a>
+                      <a href="{{route('blog.single', ['slug'=>$post->slug])}}">
+                        <i class="fa fa-heart"></i>21K</a>
+                      <a href="{{route('blog.single', ['slug'=>$post->slug])}}">
+                        <i class="fa fa-comments"></i>305</a>
+                    </li>
+                  </ul>
                 </div>
-                <a href="/blog-details.html" class="hover-content__title">We can blend colors multiple ways, the most common</a>
-                <ul class="hover-content__post-meta list-unstyled">
-                  <li>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-user"></i>George Lee</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-heart"></i>21K</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-comments"></i>305</a>
-                  </li>
-                </ul>
               </div>
             </div>
-          </div>
+            <!-- Blog post outline ends here -->
+          @endforeach
+         
         </div>
-        <div class="row justify-content-center">
-          <div class="col-xl-4 col-lg-9 col-md-7 col-xs-10">
-            <div class="blogs-post blogs-post--small">
-              <img class="w-100" src="./image/png/blog-post-2.png" alt="">
-              <div class="hover-content">
-                <div class="hover-content__top d-flex align-items-center dark-mode-texts">
-                  <a href="/blog-details.html" class="hover-content__badge badge bg-primary">Gadgets</a>
-                  <a href="/blog-details.html" class="hover-content__date">01 June, 2020</a>
-                </div>
-                <a href="/blog-details.html" class="hover-content__title">We can blend colors multiple ways, the most common</a>
-                <ul class="hover-content__post-meta list-unstyled">
-                  <li>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-user"></i>George Lee</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-heart"></i>21K</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-comments"></i>305</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-9 col-md-7 col-xs-10">
-            <div class="blogs-post blogs-post--small">
-              <img class="w-100" src="./image/png/blog-post-3.png" alt="">
-              <div class="hover-content">
-                <div class="hover-content__top d-flex align-items-center dark-mode-texts">
-                  <a href="/blog-details.html" class="hover-content__badge badge bg-primary">Gadgets</a>
-                  <a href="/blog-details.html" class="hover-content__date">01 June, 2020</a>
-                </div>
-                <a href="/blog-details.html" class="hover-content__title">We can blend colors multiple ways, the most common</a>
-                <ul class="hover-content__post-meta list-unstyled">
-                  <li>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-user"></i>George Lee</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-heart"></i>21K</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-comments"></i>305</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-9 col-md-7 col-xs-10">
-            <div class="blogs-post blogs-post--small">
-              <img class="w-100" src="./image/png/blog-post-4.png" alt="">
-              <div class="hover-content">
-                <div class="hover-content__top d-flex align-items-center dark-mode-texts">
-                  <a href="/blog-details.html" class="hover-content__badge badge bg-primary">Gadgets</a>
-                  <a href="/blog-details.html" class="hover-content__date">01 June, 2020</a>
-                </div>
-                <a href="/blog-details.html" class="hover-content__title">We can blend colors multiple ways, the most common</a>
-                <ul class="hover-content__post-meta list-unstyled">
-                  <li>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-user"></i>George Lee</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-heart"></i>21K</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-comments"></i>305</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-9 col-md-7 col-xs-10">
-            <div class="blogs-post blogs-post--small">
-              <img class="w-100" src="./image/png/blog-post-5.png" alt="">
-              <div class="hover-content">
-                <div class="hover-content__top d-flex align-items-center dark-mode-texts">
-                  <a href="/blog-details.html" class="hover-content__badge badge bg-primary">Gadgets</a>
-                  <a href="/blog-details.html" class="hover-content__date">01 June, 2020</a>
-                </div>
-                <a href="/blog-details.html" class="hover-content__title">We can blend colors multiple ways, the most common</a>
-                <ul class="hover-content__post-meta list-unstyled">
-                  <li>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-user"></i>George Lee</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-heart"></i>21K</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-comments"></i>305</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-9 col-md-7 col-xs-10">
-            <div class="blogs-post blogs-post--small">
-              <img class="w-100" src="./image/png/blog-post-6.png" alt="">
-              <div class="hover-content">
-                <div class="hover-content__top d-flex align-items-center dark-mode-texts">
-                  <a href="/blog-details.html" class="hover-content__badge badge bg-primary">Gadgets</a>
-                  <a href="/blog-details.html" class="hover-content__date">01 June, 2020</a>
-                </div>
-                <a href="/blog-details.html" class="hover-content__title">We can blend colors multiple ways, the most common</a>
-                <ul class="hover-content__post-meta list-unstyled">
-                  <li>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-user"></i>George Lee</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-heart"></i>21K</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-comments"></i>305</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-xl-4 col-lg-9 col-md-7 col-xs-10">
-            <div class="blogs-post blogs-post--small">
-              <img class="w-100" src="./image/png/blog-post-7.png" alt="">
-              <div class="hover-content">
-                <div class="hover-content__top d-flex align-items-center dark-mode-texts">
-                  <a href="/blog-details.html" class="hover-content__badge badge bg-primary">Gadgets</a>
-                  <a href="/blog-details.html" class="hover-content__date">01 June, 2020</a>
-                </div>
-                <a href="/blog-details.html" class="hover-content__title">We can blend colors multiple ways, the most common</a>
-                <ul class="hover-content__post-meta list-unstyled">
-                  <li>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-user"></i>George Lee</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-heart"></i>21K</a>
-                    <a href="/blog-details.html">
-                      <i class="fa fa-comments"></i>305</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+
+        {{$posts->links()}}
         <div class="row justify-content-center mt-7">
           <div class="col-xl-4">
             <div class="pagination">

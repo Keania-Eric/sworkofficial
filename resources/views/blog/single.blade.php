@@ -1,379 +1,261 @@
 @extends('partials.app')
 
 @section('page-contents')
- <!-- Hero Area -->
- <div class="welcome-area welcome-area--l2 bg-default">
+
+  <!-- Blog Details Area -->
+  <div class="blog-details bg-default-6">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-xl-8 col-lg-11">
-            <div class="welcome-content welcome-content--l2 text-center position-relative">
-              <h1 class="welcome-content--l2__heading" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">The intelligent way to manage projects.</h1>
-              <p class="welcome-content--l2__descriptions" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">Create custom landing pages with Fastland that<br class="d-none d-xs-block"> converts more
-                        visitors than any website.
-              </p>
-              <div class="welcome-content--l2-shape" data-aos="fade-right" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
-                <img class="w-100" src="./image/home-2/l2-hero-shape.png" alt="">
+          <div class="col-lg-7">
+            <div class="blog-title">
+              <h1 class="blog-title__heading">{{$post->title}}</h1>
+              <div class="blog__metainfo">
+                <a href="#" class="blog__metainfo__author-name">By {{$post->author}}</a>
+                <a href="#" class="blog__metainfo__date">{{date('j F, Y,', strtotime($post->published_at))}}</a>
               </div>
             </div>
-            <!-- Newsletter -->
-            <div class="welcome-content--l2__newsletter" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
-              <div class="newsletter-form mx-auto newsletter-form--l2">
-                <form action="/.">
-                  <div class="d-flex align-items-center justify-content-center flex-column flex-xs-row">
-                    <input class="form-control  rounded-55" type="email" placeholder="@ Enter your email" required>
-                    <button class=" btn btn-primary text-white btn--medium rounded-55" type="submit">Start Now!</button>
-                  </div>
-                </form>
+            <div class="blog-content">
+              <div class="blog-content__img">
+                <img class="w-100" src="./image/png/blog-details-img-1.png" alt="">
+              </div>
+              <p class="blog-content__text">{{$post->perex}}</p>
+              
+              <div class="post-tags-section d-flex align-items-center flex-wrap">
+                <h4 class="post-tags-section__title mb-0">Tags:</h4>
+                <ul class="post-tags list-unstyled mt-3 mt-lg-5">
+                  <li><a href="#">Freelance</a></li>
+                  <li><a href="#">Education</a></li>
+                  <li><a href="#">Marketing</a></li>
+                  <li><a href="#">Job</a></li>
+                  <li><a href="#">Freelance</a></li>
+                </ul>
+              </div>
+              <div class="post-social-share d-flex align-items-center flex-wrap">
+                <h4 class="post-social-share__title mb-0">Share:</h4>
+                <ul class="social-share list-unstyled mb-0">
+                  <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                  <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                  <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+              </div>
+              <div class="next-prev-btn d-flex align-items-center justify-content-between">
+                <div class="prev-btn">
+                  <a class="btn-link btn-link--prev" href="{{$post->prev_post_url}}"><i class="fa fa-arrow-left"></i>prev</a>
+                </div>
+                <div class="prev-btn">
+                  <a class="btn-link btn-link--next" href="{{$post->next_post_url}}">next<i class="fa fa-arrow-right"></i></a>
+                </div>
               </div>
             </div>
-            <!--/ .Newsletter -->
           </div>
-          <div class="col-lg-5 col-md-7" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
-            <div class="welcome-image welcome-image--l2">
-              <img class="w-100" src="./image/home-2/l2-hero-image.png" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="welcome-area--l2-shape-1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
-        <img class="w-100" src="./image/home-2/l2-hero-shape-2.png" alt="">
-      </div>
-      <div class="welcome-area--l2-shape-2" data-aos="fade-right" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
-        <img class="w-100" src="./image/home-2/l2-hero-shape-1.png" alt="">
-      </div>
-    </div>
-    <!--/ .Hero Area -->
-    <!-- Features Area -->
-    <div class="feature-area feature-area--l2 bg-purple-heart dark-mode-texts">
-      <div class="container">
-        <div class="feature--l2-tab">
-          <div class="row justify-content-center">
-            <div class="col-xl-7 col-lg-8 col-md-10">
-              <div class="feature-area--l2__tab" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
-                <ul class="nav nav-tabs nav-tab--feature-2" id="myTab" role="tablist">
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Project Management</a>
+          <div class="col-xl-4 offset-xl-1 col-lg-5 mt-5 mt-lg-0">
+            <div class="sidebar-area">
+              <!-- Single Widgets -->
+              <div class="widget">
+                <h3 class="widget__title">Search</h3>
+                <div class="widget__search">
+                  <form action="./">
+                    <i class="fa fa-search text-royal-blue"></i>
+                    <input type="text" placeholder="Type to search">
+                  </form>
+                </div>
+              </div>
+              <!--/ .Single Widgets -->
+              <!-- Single Widgets -->
+              <div class="widget">
+                <h3 class="widget__title">Recent Posts</h3>
+                <ul class="widget__recent-post list-unstyled mb-0 pb-0">
+                  <li class="widget__recent-post__single">
+                    <a href="#">
+                      <h4 class="widget__recent-post__title">How To Blow Through Capital At An Incredible Rate</h4>
+                      <p class="widget__recent-post__date">Jan 14, 2020</p>
+                    </a>
                   </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Task Management</a>
+                  <li class="widget__recent-post__single">
+                    <a href="#">
+                      <h4 class="widget__recent-post__title">Design Studios That Everyone Should Know About?</h4>
+                      <p class="widget__recent-post__date">Jan 14, 2020</p>
+                    </a>
                   </li>
-                  <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Dark Mode</a>
+                  <li class="widget__recent-post__single">
+                    <a href="#">
+                      <h4 class="widget__recent-post__title">How did we get 1M+ visitors in 30 days without anything!</h4>
+                      <p class="widget__recent-post__date">Jan 14, 2020</p>
+                    </a>
                   </li>
                 </ul>
               </div>
-            </div>
-          </div>
-          <div class="tab-content tab-content--feature-l2" id="myTabContent" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-              <div class="row align-items-center justify-content-center">
-                <div class="col-xl-6 col-lg-6 col-md-5 col-xs-10">
-                  <div class="feature-area--l2__image-group">
-                    <img class="w-100" src="./image/home-2/l2-feature-img-1.png" alt="">
-                    <div class="feature-area--l2__image-group__img-1">
-                      <img src="./image/home-2/l2-feature-shape.png" alt="">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-5 col-lg-6 col-md-7 col-xs-10">
-                  <div class="feature-area--l2__content">
-                    <h2 class="feature-area--l2__content__heading content-widget-l2__heading">Best features<br class="d-none d-xs-block">
-                                    for your project<br class="d-none d-xs-block"> management.</h2>
-                    <!-- Feature widgets -->
-                    <div class="feature-area--l2-widgets">
-                      <!-- Single Feature Widgets -->
-                      <div class="widget widget--feature-2">
-                        <div class="widget--feature-2__icon bg-coral">
-                          <img src="./image/home-2/icon-grid.png" alt="">
-                        </div>
-                        <div class="widget--feature-2__body">
-                          <h4 class="widget--feature-2__title">Manage Smartly</h4>
-                          <p class="widget--feature-2__content">Stay on top of your task lists and stay<br class='d-none d-xs-block'> in touch with what's happening</p>
-                        </div>
-                      </div>
-                      <!--/ .Single Feature Widgets -->
-                      <!-- Single Feature Widgets -->
-                      <div class="widget widget--feature-2">
-                        <div class="widget--feature-2__icon bg-java">
-                          <img src="./image/home-2/icon-message.png" alt="">
-                        </div>
-                        <div class="widget--feature-2__body">
-                          <h4 class="widget--feature-2__title">Communicate Fast</h4>
-                          <p class="widget--feature-2__content">Stay on top of your task lists and stay<br class='d-none d-xs-block'> in touch with what's happening</p>
-                        </div>
-                      </div>
-                      <!--/ .Single Feature Widgets -->
-                    </div>
-                    <!--/ .Feature widgets -->
-                  </div>
+              <!--/ .Single Widgets -->
+              
+              <!-- Single Widgets -->
+              <div class="widget">
+                <h3 class="widget__title">Categories</h3>
+                <div class="widget__category">
+                  <ul class="list-unstyled">
+                    @foreach($categories as $category)
+                      <li>
+                        <a class="d-flex align-items-center justify-content-between flex-wrap" href="#">
+                          <h4 class="mb-0">{{$category->name}}:</h4>
+                          <span>{{$category->postCount}} posts</span>
+                        </a>
+                      </li>
+                    @endforeach
+                    
+                  </ul>
                 </div>
               </div>
-            </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-              <div class="row align-items-center justify-content-center">
-                <div class="col-xl-6 col-lg-6 col-md-5 col-xs-10">
-                  <div class="feature-area--l2__image-group">
-                    <img class="w-100" src="./image/home-2/l2-feature-img-1.png" alt="">
-                    <div class="feature-area--l2__image-group__img-1">
-                      <img src="./image/home-2/l2-feature-shape.png" alt="">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-5 col-lg-6 col-md-7 col-xs-10">
-                  <div class="feature-area--l2__content">
-                    <h2 class="feature-area--l2__content__heading content-widget-l2__heading">Best features<br class="d-none d-xs-block">
-                                    for your project<br class="d-none d-xs-block"> management.</h2>
-                    <!-- Feature widgets -->
-                    <div class="feature-area--l2-widgets">
-                      <!-- Single Feature Widgets -->
-                      <div class="widget widget--feature-2">
-                        <div class="widget--feature-2__icon bg-coral">
-                          <img src="./image/home-2/icon-grid.png" alt="">
-                        </div>
-                        <div class="widget--feature-2__body">
-                          <h4 class="widget--feature-2__title">Manage Smartly</h4>
-                          <p class="widget--feature-2__content">Stay on top of your task lists and stay<br class='d-none d-xs-block'> in touch with what's happening</p>
-                        </div>
-                      </div>
-                      <!--/ .Single Feature Widgets -->
-                      <!-- Single Feature Widgets -->
-                      <div class="widget widget--feature-2">
-                        <div class="widget--feature-2__icon bg-java">
-                          <img src="./image/home-2/icon-message.png" alt="">
-                        </div>
-                        <div class="widget--feature-2__body">
-                          <h4 class="widget--feature-2__title">Communicate Fast</h4>
-                          <p class="widget--feature-2__content">Stay on top of your task lists and stay<br class='d-none d-xs-block'> in touch with what's happening</p>
-                        </div>
-                      </div>
-                      <!--/ .Single Feature Widgets -->
-                    </div>
-                    <!--/ .Feature widgets -->
-                  </div>
-                </div>
+              <!--/ .Single Widgets -->
+              <!-- Single Widgets -->
+              <div class="sidebar__ads">
+                <a href="#"><img class="w-100" src="./image/png/ads-img.png" alt=""></a>
               </div>
             </div>
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-              <div class="row align-items-center justify-content-center">
-                <div class="col-xl-6 col-lg-6 col-md-5 col-xs-10">
-                  <div class="feature-area--l2__image-group">
-                    <img class="w-100" src="./image/home-2/l2-feature-img-1.png" alt="">
-                    <div class="feature-area--l2__image-group__img-1">
-                      <img src="./image/home-2/l2-feature-shape.png" alt="">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xl-5 col-lg-6 col-md-7 col-xs-10">
-                  <div class="feature-area--l2__content">
-                    <h2 class="feature-area--l2__content__heading content-widget-l2__heading">Best features<br class="d-none d-xs-block">
-                                    for your project<br class="d-none d-xs-block"> management.</h2>
-                    <!-- Feature widgets -->
-                    <div class="feature-area--l2-widgets">
-                      <!-- Single Feature Widgets -->
-                      <div class="widget widget--feature-2">
-                        <div class="widget--feature-2__icon bg-coral">
-                          <img src="./image/home-2/icon-grid.png" alt="">
-                        </div>
-                        <div class="widget--feature-2__body">
-                          <h4 class="widget--feature-2__title">Manage Smartly</h4>
-                          <p class="widget--feature-2__content">Stay on top of your task lists and stay<br class='d-none d-xs-block'> in touch with what's happening</p>
-                        </div>
-                      </div>
-                      <!--/ .Single Feature Widgets -->
-                      <!-- Single Feature Widgets -->
-                      <div class="widget widget--feature-2">
-                        <div class="widget--feature-2__icon bg-java">
-                          <img src="./image/home-2/icon-message.png" alt="">
-                        </div>
-                        <div class="widget--feature-2__body">
-                          <h4 class="widget--feature-2__title">Communicate Fast</h4>
-                          <p class="widget--feature-2__content">Stay on top of your task lists and stay<br class='d-none d-xs-block'> in touch with what's happening</p>
-                        </div>
-                      </div>
-                      <!--/ .Single Feature Widgets -->
-                    </div>
-                    <!--/ .Feature widgets -->
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!--/ .Single Widgets -->
           </div>
         </div>
       </div>
     </div>
-    <!--/ .Features Area -->
-    <!-- Content One Area -->
-    <div class="content-section content-section--l2-1 bg-default position-relative">
-      <div class="content-section--l2-1__shape">
-        <img class="w-100" src="./image/home-2/l2-content-1-shape.png" alt="">
-      </div>
+    <!--/ .Blog Details Area -->
+    <!-- Comments Section Area -->
+    <div class="comments-area bg-default-3 border-bottom border-default-4">
       <div class="container">
-        <div class="row align-items-center justify-content-center justify-content-lg-start">
-          <div class="col-xl-5 col-lg-6 col-md-8 col-xs-10 order-2 order-lg-1">
-            <div class="content-texts content-texts--l2-1 text-center text-lg-start">
-              <h2 class="content-texts--l2-1__heading" data-aos="fade-right" data-aos-duration="500" data-aos-once="true">The intelligent<br class="d-none d-lg-block"> way to manage<br class="d-none d-lg-block"> any project.</h2>
-              <p class="content-texts--l2-1__content" data-aos="fade-right" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">Create custom landing pages with Fastland<br class="d-none d-xs-block"> that converts more visitors than any<br class="d-none d-xs-block"> website. Easy, Reliable & Fast.</p>
-              <div class="content-texts--l2-1__button">
-                <a class="btn-link--2 with--line border--primary" href="" data-aos="fade-right" data-aos-delay="500" data-aos-duration="500" data-aos-once="true">Get Started Now</a>
-              </div>
+        <div class="row">
+          <div class="col-lg-7" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
+            <div class="comments-form section-title text-left mb-5 mb-md-7">
+              <h2 class="section-title__heading">
+                Comments
+              </h2>
             </div>
+            <ul class="list-unstyled">
+              <!-- Single Comments -->
+              <li class="comment-meta-box__single">
+                <div class="comment-meta-box d-flex">
+                  <div class="comment-meta-box__author-img">
+                    <img src="./image/png/user-img-1.png" alt="">
+                  </div>
+                  <div class="comment-meta-box__content">
+                    <div class="comment-meta-box__user-info d-flex align-items-end justify-content-between mb-3">
+                      <div class="comment-meta-box__details">
+                        <a href="#" class="comment-meta-box__name">Brandon Howard</a>
+                        <div class="comment-meta-box__date-time">
+                          <a href="#" class="comment-meta-box__date">Jan 20, 2021 </a>|
+                          <a href="" class="comment-meta-box__time"> 24 minutes ago</a>
+                        </div>
+                      </div>
+                      <a class="btn-link comment-meta-box__reply-btn text-electric-violet-2" href="#">
+                        <i
+                                            class="fa fa-reply"></i> Reply</a>
+                    </div>
+                    <p class="comment-meta-box__text">OMG! I cannot believe that I have got a brand new
+                      landing page after getting
+                      Fastland. It
+                      was super easy to create, edit and publish.</p>
+                  </div>
+                </div>
+                <ul class="list-unstyled sub-comment-meta-box">
+                  <!-- Single Comments -->
+                  <li class="comment-meta-box__single">
+                    <div class="comment-meta-box d-flex">
+                      <div class="comment-meta-box__author-img">
+                        <img src="./image/png/user-img-2.png" alt="">
+                      </div>
+                      <div class="comment-meta-box__content">
+                        <div class="comment-meta-box__user-info d-flex align-items-end justify-content-between mb-3">
+                          <div class="comment-meta-box__details">
+                            <a href="#" class="comment-meta-box__name">Jennifer Ashley</a>
+                            <div class="comment-meta-box__date-time">
+                              <a href="#" class="comment-meta-box__date">Jan 20, 2021 </a>|
+                              <a href="" class="comment-meta-box__time"> 24 minutes ago</a>
+                            </div>
+                          </div>
+                          <a class="btn-link comment-meta-box__reply-btn text-electric-violet-2" href="#">
+                            <i class="fa fa-reply"></i> Reply</a>
+                        </div>
+                        <p class="comment-meta-box__text">OMG! I cannot believe that I have got a brand
+                          new landing page after getting
+                          Fastland. It
+                          was super easy to create, edit and publish.</p>
+                      </div>
+                    </div>
+                  </li>
+                  <!--/ .Single Comments -->
+                </ul>
+              </li>
+              <!--/ .Single Comments -->
+              <!-- Single Comments -->
+              <li class="comment-meta-box__single">
+                <div class="comment-meta-box d-flex">
+                  <div class="comment-meta-box__author-img">
+                    <img src="./image/png/user-img-3.png" alt="">
+                  </div>
+                  <div class="comment-meta-box__content">
+                    <div class="comment-meta-box__user-info d-flex align-items-end justify-content-between mb-3">
+                      <div class="comment-meta-box__details">
+                        <a href="#" class="comment-meta-box__name">Mark Ruffins</a>
+                        <div class="comment-meta-box__date-time">
+                          <a href="#" class="comment-meta-box__date">Jan 20, 2021 </a>|
+                          <a href="#" class="comment-meta-box__time"> 24 minutes ago</a>
+                        </div>
+                      </div>
+                      <a class="btn-link comment-meta-box__reply-btn text-electric-violet-2" href="#">
+                        <i
+                                            class="fa fa-reply"></i> Reply</a>
+                    </div>
+                    <p class="comment-meta-box__text">OMG! I cannot believe that I have got a brand new
+                      landing page after getting
+                      Fastland. It
+                      was super easy to create, edit and publish.</p>
+                  </div>
+                </div>
+              </li>
+              <!--/ .Single Comments -->
+            </ul>
           </div>
-          <div class="col-xl-7 col-lg-6 col-md-8 col-xs-10 order-1 order-lg-2">
-            <div class="content-image-group content-image-group--l2-1">
-              <img class="w-100" src="./image/home-2/l2-content-img-1.png" alt="" data-aos="fade-left" data-aos-duration="500" data-aos-once="true">
-              <div class="content-image-group--l2-1__img-1">
-                <img class="w-100" src="./image/home-2/l2-content-shape-2.png" alt="" data-aos="fade-left" data-aos-delay="300" data-aos-duration="500" data-aos-once="true">
+          <div class="col-xl-7 col-lg-7 mb-7 mb-lg-0">
+            <div class="comments-form">
+              <div class="section-title text-left mb-5 mb-md-7" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
+                <h2 class="section-title__heading">
+                  Share your response
+                </h2>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--/ .Content One Area -->
-    <!-- Content Two Area -->
-    <div class="content-section content-section--l2-2 position-relative bg-default">
-      <div class="container">
-        <div class="content-section--l2-2__wrapper border-top border-default-color">
-          <div class="row align-items-center justify-content-center justify-content-lg-start">
-            <div class="col-xl-7 col-lg-6 col-md-8 col-xs-10">
-              <div class="content-image-group--l2-2">
-                <img class="w-100" src="./image/home-2/l2-content-img-2.png" alt="" data-aos="fade-right" data-aos-duration="500" data-aos-once="true">
-                <div class="content-image-group--l2-2__img-1">
-                  <img class="w-100" src="./image/home-2/l2-content-2-shape-2.png" alt="" data-aos="fade-right" data-aos-duration="500" data-aos-once="true" data-aos-delay="300">
+              <form action="./" class="contact-form" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">
+                <div class="row">
+                  <div class="col-lg-6 mb-4">
+                    <div class="form-floating">
+                      <input class="form-control" placeholder="Leave a comment here" id="floatinginput" />
+                      <label for="floatinginput">Your Name</label>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 mb-4">
+                    <div class="form-floating">
+                      <input class="form-control" placeholder="Leave a comment here" id="floatinginput2" />
+                      <label for="floatinginput2">Your Email</label>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-floating">
+                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea3" style="height: 100px"></textarea>
+                      <label for="floatingTextarea3">Type your comment.. </label>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="form-check d-flex align-items-center">
+                      <input class="form-check-input bg-white float-none mt-0" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Save my name, email, and website in this browser for the next time I comment.
+                      </label>
+                    </div>
+                    <button class="btn btn-primary shadow--primary-4 btn--lg-2 rounded-55 text-white">Send
+                      Message</button>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-xl-5 col-lg-6 col-md-8 col-xs-10">
-              <div class="content-texts content-texts--l2-1 text-center text-lg-start">
-                <h2 class="content-texts--l2-1__heading" data-aos="fade-left" data-aos-duration="500" data-aos-once="true">Connect with<br class="d-none d-lg-block"> team members<br class="d-none d-lg-block"> with ease.</h2>
-                <p class="content-texts--l2-1__content" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">Create custom landing pages with Fastland<br class="d-none d-xs-block"> that converts more visitors than any<br class="d-none d-xs-block"> website. Easy, Reliable & Fast.</p>
-                <div class="content-texts--l2-1__button" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
-                  <a class="btn-link--2 with--line border--primary" href="">Get Started Now</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="content-section--l2-2__shape-img">
-        <img class="w-100" src="./image/home-2/l2-content-2-shape.png" alt="">
-      </div>
-    </div>
-    <!--/ .Content Two Area -->
-    <!-- Brand Logo Area -->
-    <div class="brand-area brand-area--l2 bg-default-5">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-xl-10">
-            <div class="section-title--2 text-center">
-              <h2 class="section-title--2__heading" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">Software Integrations</h2>
-              <p class="section-title--2__description" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">Create custom landing pages with Fastland that converts <br class="d-none d-sm-block"> more
-                        visitors than any website.</p>
-              <div class="section-title--2__button">
-                <a class="btn-link--2 with--line border--primary" href="" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400" data-aos-once="true">Explore All
-                  Apps</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-xl-5 col-lg-6 col-md-9" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
-            <div class="brand-image-group brand-image-group--l2">
-              <div class="brand-image-group--l2__image--main circle-126">
-                <div class="img-0">
-                  <img class="w-100" src="./image/home-2/brand-logo-1.png" alt="">
-                </div>
-              </div>
-              <!-- Image -->
-              <div class="brand-image-group--l2__single brand-image-group--l2__img-1 circle-91">
-                <div class="brand-logo-1">
-                  <img class="w-100" src="./image/home-2/brand-logo-2.png" alt="">
-                </div>
-              </div>
-              <div class="brand-image-group--l2__single brand-image-group--l2__img-2 circle-103">
-                <div class="brand-logo-2">
-                  <img class="w-100" src="./image/home-2/brand-logo-3.png" alt="">
-                </div>
-              </div>
-              <div class="brand-image-group--l2__single brand-image-group--l2__img-3 circle-98">
-                <div class="brand-logo-3">
-                  <img class="w-100" src="./image/home-2/brand-logo-4.png" alt="">
-                </div>
-              </div>
-              <div class="brand-image-group--l2__single brand-image-group--l2__img-4 circle-99">
-                <div class="brand-logo-4">
-                  <img class="w-100" src="./image/home-2/brand-logo-5.png" alt="">
-                </div>
-              </div>
-              <div class="brand-image-group--l2__single brand-image-group--l2__img-5 circle-95">
-                <div class="brand-logo-5">
-                  <img class="w-100" src="./image/home-2/brand-logo-6.png" alt="">
-                </div>
-              </div>
-              <div class="brand-image-group--l2__single brand-image-group--l2__img-6 circle-113">
-                <div class="brand-logo-6">
-                  <img class="w-100" src="./image/home-2/brand-logo-7.png" alt="">
-                </div>
-              </div>
-              <div class="brand-image-group--l2__single brand-image-group--l2__img-7 circle-88">
-                <div class="brand-logo-7">
-                  <img class="w-100" src="./image/home-2/brand-logo-8.png" alt="">
-                </div>
-              </div>
-              <div class="brand-image-group--l2__single brand-image-group--l2__img-8 circle-108">
-                <div class="brand-logo-8">
-                  <img class="w-100" src="./image/home-2/brand-logo-9.png" alt="">
-                </div>
-              </div>
-              <!-- Image Line -->
-              <div class="brand-image-group--l2__line-1">
-                <img class="w-100" src="./image/home-2/brand-line-1.png" alt="">
-              </div>
-              <div class="brand-image-group--l2__line-2">
-                <img class="w-100" src="./image/home-2/brand-line-2.png" alt="">
-              </div>
-              <div class="brand-image-group--l2__line-3">
-                <img class="w-100" src="./image/home-2/brand-line-3.png" alt="">
-              </div>
-              <div class="brand-image-group--l2__line-4">
-                <img class="w-100" src="./image/home-2/brand-line-4.png" alt="">
-              </div>
-              <div class="brand-image-group--l2__line-5">
-                <img class="w-100" src="./image/home-2/brand-line-5.png" alt="">
-              </div>
-              <div class="brand-image-group--l2__line-6">
-                <img class="w-100" src="./image/home-2/brand-line-6.png" alt="">
-              </div>
-              <div class="brand-image-group--l2__line-7">
-                <img class="w-100" src="./image/home-2/brand-line-7.png" alt="">
-              </div>
-              <div class="brand-image-group--l2__line-8">
-                <img class="w-100" src="./image/home-2/brand-line-8.png" alt="">
-              </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!--/ .Brand Logo Two Area -->
-    <!-- Cta Area -->
-    <div class="cta-section cta-section--l2 bg-default">
-      <div class="container">
-        <div class="cta-section--l2__content bg-electric-violet dark-mode-texts">
-          <div class="row align-items-center">
-            <div class="col-lg-7">
-              <h3 class="cta-section--l2__content__heading" data-aos="fade-right" data-aos-duration="500" data-aos-once="true">Get started by<br class="d-none d-xs-block">  downloading apps.</h3>
-            </div>
-            <div class="col-lg-5">
-              <div class="cta-section--l2__button text-center text-lg-end">
-                <a class="btn btn--190 btn-white rounded-55" href="" data-aos="fade-left" data-aos-duration="500" data-aos-once="true">Download App</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--/ .Cta Area -->
-    <!-- Footer Area -->
+    <!--/ .Comments Section Area -->
 @endsection
 
