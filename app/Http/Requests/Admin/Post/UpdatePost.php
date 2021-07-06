@@ -32,7 +32,7 @@ class UpdatePost extends FormRequest
             'perex' => ['nullable', 'string'],
             // 'image' => ['nullable', 'string'],
             'featured' => ['sometimes', 'boolean'],
-            'category' => ['required'],
+            'category' => ['sometimes'],
             'author' => ['nullable', 'string'],
             'intro_text' => ['sometimes', 'string'],
             'published_at' => ['nullable', 'date'],

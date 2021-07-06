@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use App\Models\PostCategory;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Brackets\Media\HasMedia\ProcessMediaTrait;
+use Brackets\Media\HasMedia\HasMediaThumbsTrait;
 use Brackets\Media\HasMedia\AutoProcessMediaTrait;
 use Brackets\Media\HasMedia\HasMediaCollectionsTrait;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Post extends Model implements HasMedia
 {
@@ -15,9 +18,29 @@ class Post extends Model implements HasMedia
     use ProcessMediaTrait;
     use AutoProcessMediaTrait;
     use HasMediaCollectionsTrait;
+    use HasMediaThumbsTrait;
+
 
     public function registerMediaCollections(): void {
         $this->addMediaCollection('image');
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        // For preview on admin end
+        $this->autoRegisterThumb200();
+
+        // Image on the blog single page
+        $this->addMediaConversion('default')
+            ->width(746)
+            ->height(446)
+            ->performOnCollections('image');
+
+        /// Image on the blog listing page
+        $this->addMediaConversion('thumbnail')
+            ->width(415)
+            ->height(464)
+            ->performOnCollections('image');
     }
 
 
@@ -25,7 +48,6 @@ class Post extends Model implements HasMedia
         'title',
         'slug',
         'perex',
-        'image',
         'featured',
         'post_category_id',
         'author',
@@ -43,7 +65,7 @@ class Post extends Model implements HasMedia
     
     ];
     
-    protected $appends = ['resource_url', 'image_url', 'post_url', 'next_post_url', 'prev_post_url'];
+    protected $appends = ['resource_url', 'post_url', 'thumbnail_url', 'default_image_url', 'next_post_url', 'prev_post_url'];
 
     /* ************************ ACCESSOR ************************* */
 
@@ -60,17 +82,31 @@ class Post extends Model implements HasMedia
     public function getImageUrlAttribute()
     {
         $media = $this->getMedia('image');
-        return is_array($media) ? $media[0]->getUrl() : '#';
+        return $media->isNotEmpty() ? $media[0]->getUrl() : '#';
+    }
+
+    public function getThumbnailUrlAttribute()
+    {
+        $thumbnail = $this->getMedia('image');
+        return $thumbnail->isNotEmpty() ? $thumbnail[0]->getUrl('thumbnail') : asset('images/blog-post-3.png');
+    }
+
+    public function getDefaultImageUrlAttribute()
+    {
+        $media = $this->getMedia('image');
+        return $media->isNotEmpty() ? $media[0]->getUrl() : asset('images/blog-details-img-1.png');
     }
 
     public function isPublished()
     {
-        return !is_null($this->published_at) && $this->enabled == true;
+        $today = Carbon::today();
+        return ($this->published_at < $today) && $this->enabled == true;
     }
 
     public function scopePublished($query)
     {
-        return $query->whereNotNull('published_at')->where('enabled', true);
+        $today = Carbon::today();
+        return $query->where('published_at', '<', $today)->where('enabled', true);
     }
 
 
@@ -80,7 +116,7 @@ class Post extends Model implements HasMedia
     }
 
 
-    public function getNexPostUrlAttribute()
+    public function getNextPostUrlAttribute()
     {
         return $this->siblingPost($this->id + 1, 'next');
     }
@@ -99,8 +135,9 @@ class Post extends Model implements HasMedia
             return '#';
         }
 
+        // If the next post id not pubished or is same as the current
         if (!$siblingPost->isPublished()) {
-            return $pos == 'next' ? $this->siblingPost($siblingPost->id + 1, $pos) : $this->siblingPost($siblingPost->id - 1, $pos);
+            return $pos == 'next' ? $this->siblingPost($id + 1, $pos) : $this->siblingPost($id - 1, $pos);
         }
 
         return $siblingPost->post_url;

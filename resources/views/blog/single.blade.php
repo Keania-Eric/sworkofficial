@@ -16,7 +16,7 @@
             </div>
             <div class="blog-content">
               <div class="blog-content__img">
-                <img class="w-100" src="./image/png/blog-details-img-1.png" alt="">
+                <img class="w-100" src="{{$post->default_image_url}}" alt="">
               </div>
               <p class="blog-content__text">{{$post->perex}}</p>
               

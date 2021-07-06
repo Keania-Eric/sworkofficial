@@ -17,6 +17,7 @@
 
         @include('brackets/admin-ui::admin.includes.media-uploader', [
             'mediaCollection' => app(App\Models\Post::class)->getMediaCollection('image'),
+            'media' => $post->getThumbs200ForCollection('image'),
             'label' => 'Image'
         ])
         

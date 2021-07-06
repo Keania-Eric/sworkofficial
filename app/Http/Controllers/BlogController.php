@@ -13,7 +13,7 @@ class BlogController extends Controller
 
     public function index()
     {
-        $posts  = Post::published()->latest()->paginate(2);
+        $posts  = Post::published()->latest()->paginate(6);
         $featuredPost = Post::whereFeatured(true)->first();
         return view('blog.index', ['posts'=> $posts, 'featuredPost'=> $featuredPost]);
     }

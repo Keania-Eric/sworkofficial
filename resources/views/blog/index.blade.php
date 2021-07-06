@@ -49,7 +49,7 @@
             <!-- Blog post outline starts -->
             <div class="col-xl-4 col-lg-9 col-md-7 col-xs-10">
               <div class="blogs-post blogs-post--small">
-                <img class="w-100" src="./image/png/blog-post-2.png" alt="">
+                <img class="w-100" src="{{$post->thumbnail_url}}" alt="">
                 <div class="hover-content">
                   <div class="hover-content__top d-flex align-items-center dark-mode-texts">
                     <a href="{{route('blog.single', ['slug'=>$post->slug])}}" class="hover-content__badge badge bg-primary">{{$post->category->name}}</a>
@@ -74,25 +74,8 @@
          
         </div>
 
-        {{$posts->links()}}
-        <div class="row justify-content-center mt-7">
-          <div class="col-xl-4">
-            <div class="pagination">
-              <ul class="list-unstyled text-center mx-auto">
-                <li>
-                  <a href="#"><i class="fa fa-chevron-left"></i></a>
-                  <a href="#">1</a>
-                  <a href="#">2</a>
-                  <a href="#">3</a>
-                  <a href="#">...</a>
-                  <a href="#">5</a>
-                  <a href="#">6</a>
-                  <a href="#"><i class="fa fa-chevron-right"></i></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        {{$posts->links('vendor.pagination.template')}}
+       
       </div>
     </div>
 @endsection

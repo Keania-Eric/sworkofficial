@@ -38,7 +38,7 @@ class PostsController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'title', 'image', 'featured', 'post_category_id', 'author', 'intro_text', 'published_at', 'enabled', 'post_category_id'],
+            ['id', 'title', 'slug', 'image', 'featured', 'post_category_id', 'author', 'intro_text', 'published_at', 'enabled', 'post_category_id'],
 
             // set columns to searchIn
             ['id', 'title', 'slug', 'perex', 'image', 'author', 'intro_text', 'post_category.name'],
@@ -128,7 +128,7 @@ class PostsController extends Controller
     {
         $this->authorize('admin.post.edit', $post);
 
-
+        unset($post->image);
         return view('admin.post.edit', [
             'post' => $post,
             'categories'=> PostCategory::all()
@@ -146,10 +146,12 @@ class PostsController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        
+        if($request->has('category')) {
+            $sanitized['post_category_id'] = $request->getPostCategoryId();
+        }
 
-        $sanitized['post_category_id'] = $request->getPostCategoryId();
-
-        if($sanitized['featured'] == true) {
+        if ($request->has('featured') && $sanitized['featured'] == true) {
             // updated all others as false
             $this->makeAllOtherFeaturedFalse();
         }

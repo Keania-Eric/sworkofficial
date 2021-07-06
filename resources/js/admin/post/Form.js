@@ -9,7 +9,6 @@ Vue.component('post-form', {
                 title:  '' ,
                 slug:  '' ,
                 perex:  '' ,
-                image:  '' ,
                 featured:  false ,
                 category:  '' ,
                 author:  '' ,
@@ -18,7 +17,7 @@ Vue.component('post-form', {
                 enabled:  false ,
                 
             },
-            mediaCollections : ['image']
+           mediaCollections : ['image']
         }
     }
 

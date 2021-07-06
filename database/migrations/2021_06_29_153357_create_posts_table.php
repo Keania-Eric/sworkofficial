@@ -18,7 +18,6 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('perex')->nullable();
-            $table->string('image')->nullable();
             $table->boolean('featured')->default(false); // Enable on blog page
             $table->integer('post_category_id');
             $table->string('author')->nullable();
