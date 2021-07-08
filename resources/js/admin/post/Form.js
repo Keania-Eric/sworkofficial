@@ -2,7 +2,7 @@ import AppForm from '../app-components/Form/AppForm';
 
 Vue.component('post-form', {
     mixins: [AppForm],
-    props: ['categories'],
+    props: ['categories', 'alltags', 'tags', 'category'],
     data: function() {
         return {
             form: {
@@ -11,6 +11,7 @@ Vue.component('post-form', {
                 perex:  '' ,
                 featured:  false ,
                 category:  '' ,
+                tags: '',
                 author:  '' ,
                 intro_text:  '' ,
                 published_at:  '' ,

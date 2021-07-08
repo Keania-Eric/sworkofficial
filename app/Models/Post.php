@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use App\Models\PostCategory;
+use Conner\Tagging\Taggable;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Brackets\Media\HasMedia\ProcessMediaTrait;
@@ -19,6 +20,7 @@ class Post extends Model implements HasMedia
     use AutoProcessMediaTrait;
     use HasMediaCollectionsTrait;
     use HasMediaThumbsTrait;
+    use Taggable;
 
 
     public function registerMediaCollections(): void {
@@ -65,7 +67,15 @@ class Post extends Model implements HasMedia
     
     ];
     
-    protected $appends = ['resource_url', 'post_url', 'thumbnail_url', 'default_image_url', 'next_post_url', 'prev_post_url'];
+    protected $appends = [
+        'resource_url', 
+        'post_url', 
+        'thumbnail_url', 
+        'default_image_url', 
+        'next_post_url', 
+        'prev_post_url',
+        'tags'
+    ];
 
     /* ************************ ACCESSOR ************************* */
 

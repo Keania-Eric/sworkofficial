@@ -18,16 +18,16 @@
               <div class="blog-content__img">
                 <img class="w-100" src="{{$post->default_image_url}}" alt="">
               </div>
-              <p class="blog-content__text">{{$post->perex}}</p>
+              <p class="blog-content__text">{!! $post->perex !!}</p>
               
               <div class="post-tags-section d-flex align-items-center flex-wrap">
                 <h4 class="post-tags-section__title mb-0">Tags:</h4>
                 <ul class="post-tags list-unstyled mt-3 mt-lg-5">
-                  <li><a href="#">Freelance</a></li>
-                  <li><a href="#">Education</a></li>
-                  <li><a href="#">Marketing</a></li>
-                  <li><a href="#">Job</a></li>
-                  <li><a href="#">Freelance</a></li>
+                  @forelse($tags as $tag)
+                    <li><a href="{{route('blog.index.tag', ['tag'=>$tag->name])}}">{{$tag->name}}</a></li>
+                  @empty
+                    <li></li>
+                  @endforelse
                 </ul>
               </div>
               <div class="post-social-share d-flex align-items-center flex-wrap">
@@ -66,24 +66,17 @@
               <div class="widget">
                 <h3 class="widget__title">Recent Posts</h3>
                 <ul class="widget__recent-post list-unstyled mb-0 pb-0">
+                  @forelse($recentPosts as $post)
                   <li class="widget__recent-post__single">
-                    <a href="#">
-                      <h4 class="widget__recent-post__title">How To Blow Through Capital At An Incredible Rate</h4>
-                      <p class="widget__recent-post__date">Jan 14, 2020</p>
+                    <a href="{{route('blog.single', ['slug'=>$post->slug])}}">
+                      <h4 class="widget__recent-post__title">{{$post->title}}</h4>
+                      <p class="widget__recent-post__date">{{date('j F, Y,', strtotime($post->published_at))}}</p>
                     </a>
                   </li>
-                  <li class="widget__recent-post__single">
-                    <a href="#">
-                      <h4 class="widget__recent-post__title">Design Studios That Everyone Should Know About?</h4>
-                      <p class="widget__recent-post__date">Jan 14, 2020</p>
-                    </a>
-                  </li>
-                  <li class="widget__recent-post__single">
-                    <a href="#">
-                      <h4 class="widget__recent-post__title">How did we get 1M+ visitors in 30 days without anything!</h4>
-                      <p class="widget__recent-post__date">Jan 14, 2020</p>
-                    </a>
-                  </li>
+                  @empty
+                    <li></li>
+                  @endforelse
+                  
                 </ul>
               </div>
               <!--/ .Single Widgets -->
@@ -93,14 +86,16 @@
                 <h3 class="widget__title">Categories</h3>
                 <div class="widget__category">
                   <ul class="list-unstyled">
-                    @foreach($categories as $category)
+                    @forelse($categories as $category)
                       <li>
-                        <a class="d-flex align-items-center justify-content-between flex-wrap" href="#">
+                        <a class="d-flex align-items-center justify-content-between flex-wrap" href="{{route('blog.index.category', ['id'=> $category->id])}}">
                           <h4 class="mb-0">{{$category->name}}:</h4>
                           <span>{{$category->postCount}} posts</span>
                         </a>
                       </li>
-                    @endforeach
+                    @empty
+                      <li></li>
+                    @endforelse
                     
                   </ul>
                 </div>

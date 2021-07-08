@@ -30,7 +30,6 @@ class UpdatePost extends FormRequest
             'title' => ['sometimes', 'string'],
             'slug' => ['sometimes', Rule::unique('posts', 'slug')->ignore($this->post->getKey(), $this->post->getKeyName()), 'string'],
             'perex' => ['nullable', 'string'],
-            // 'image' => ['nullable', 'string'],
             'featured' => ['sometimes', 'boolean'],
             'category' => ['sometimes'],
             'author' => ['nullable', 'string'],

@@ -9,6 +9,9 @@
             <post-form
                 :action="'{{ $post->resource_url }}'"
                 :categories="{{$categories->toJson()}}"
+                :category="{{$post->category}}"
+                :alltags="{{$tags->toJson()}}"
+                :tags="{{$post->tags}}"
                 :data="{{ $post->toJson() }}"
                 v-cloak
                 inline-template>

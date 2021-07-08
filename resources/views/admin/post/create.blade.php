@@ -10,6 +10,7 @@
         <post-form
             :action="'{{ url('admin/posts') }}'"
             :categories="{{$categories->toJson()}}"
+            :alltags="{{$tags->toJson()}}"
             v-cloak
             inline-template>
 

@@ -60,3 +60,16 @@ $factory->define(App\Models\PostCategory::class, static function (Faker\Generato
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\TaggingTag::class, static function (Faker\Generator $faker) {
+    return [
+        'slug' => $faker->unique()->slug,
+        'name' => $faker->firstName,
+        'suggest' => $faker->boolean(),
+        'count' => $faker->randomNumber(5),
+        'tag_group_id' => $faker->randomNumber(5),
+        'description' => $faker->text(),
+        
+        
+    ];
+});

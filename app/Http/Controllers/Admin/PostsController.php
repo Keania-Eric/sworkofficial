@@ -6,6 +6,7 @@ use Exception;
 use App\Models\Post;
 use Illuminate\View\View;
 use App\Models\PostCategory;
+use Conner\Tagging\Model\Tag;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\DB;
@@ -77,7 +78,11 @@ class PostsController extends Controller
     {
         $this->authorize('admin.post.create');
 
-        return view('admin.post.create', ['categories'=> PostCategory::all()]);
+        return view('admin.post.create', [
+            'categories'=> PostCategory::all(),
+            'tags'=> Tag::all()
+            ]
+        );
     }
 
     /**
@@ -95,6 +100,9 @@ class PostsController extends Controller
 
         // Store the Post
         $post = Post::create($sanitized);
+
+         // Include tag
+         $post->tag(collect($request->tags)->pluck('name')->toArray());
 
         if ($request->ajax()) {
             return ['redirect' => url('admin/posts'), 'message' => trans('brackets/admin-ui::admin.operation.succeeded')];
@@ -127,11 +135,12 @@ class PostsController extends Controller
     public function edit(Post $post)
     {
         $this->authorize('admin.post.edit', $post);
-
+    
         unset($post->image);
         return view('admin.post.edit', [
             'post' => $post,
-            'categories'=> PostCategory::all()
+            'categories'=> PostCategory::all(),
+            'tags'=> Tag::all()
         ]);
     }
 
@@ -158,6 +167,10 @@ class PostsController extends Controller
 
         // Update changed values Post
         $post->update($sanitized);
+
+        // Include tag
+        $post->untag();
+        $post->tag(collect($request->tags)->pluck('name')->toArray());
 
         if ($request->ajax()) {
             return [

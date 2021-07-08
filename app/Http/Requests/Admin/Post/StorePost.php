@@ -29,7 +29,6 @@ class StorePost extends FormRequest
             'title' => ['required', 'string'],
             'slug' => ['required', Rule::unique('posts', 'slug'), 'string'],
             'perex' => ['nullable', 'string'],
-            'image' => ['nullable', 'string'],
             'featured' => ['required', 'boolean'],
             'category' => ['required'],
             'author' => ['nullable', 'string'],

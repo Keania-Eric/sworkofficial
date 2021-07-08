@@ -29,6 +29,9 @@ Route::get('/project-management', [SiteController::class, 'projectManagement'])-
 
 // Blog Routes
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/tag/{tag}', [BlogController::class, 'indexByTag'])->name('blog.index.tag');
+Route::get('/blog/category/{id}', [BlogController::class, 'indexByCategory'])->name('blog.index.category');
+Route::get('/blog/search', [BlogController::class, 'indexBySearch'])->name('blog.index.search');
 Route::get('/blog/{slug}', [BlogController::class, 'single'])->name('blog.single');
 
 
@@ -84,6 +87,21 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
             Route::post('/bulk-destroy',                                'PostCategoriesController@bulkDestroy')->name('bulk-destroy');
             Route::post('/{postCategory}',                              'PostCategoriesController@update')->name('update');
             Route::delete('/{postCategory}',                            'PostCategoriesController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('tagging-tags')->name('tagging-tags/')->group(static function() {
+            Route::get('/',                                             'TaggingTagsController@index')->name('index');
+            Route::get('/create',                                       'TaggingTagsController@create')->name('create');
+            Route::post('/',                                            'TaggingTagsController@store')->name('store');
+            Route::get('/{taggingTag}/edit',                            'TaggingTagsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'TaggingTagsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{taggingTag}',                                'TaggingTagsController@update')->name('update');
+            Route::delete('/{taggingTag}',                              'TaggingTagsController@destroy')->name('destroy');
         });
     });
 });

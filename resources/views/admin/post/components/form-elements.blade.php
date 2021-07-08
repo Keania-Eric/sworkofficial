@@ -45,6 +45,7 @@
         <multiselect
             v-model="form.category"
             :options="categories"
+            :value="category"
             :multiple="false"
             track-by="id"
             label="name"
@@ -54,6 +55,29 @@
 
         <div v-if="errors.has('post_category_id')" class="form-control-feedback form-text" v-cloak>@{{
             errors.first('post_category_id') }}
+        </div>
+    </div>
+</div>
+
+<div class="form-group row align-items-center"
+     :class="{'has-danger': errors.has('tags'), 'has-success': this.fields.tags && this.fields.tags.valid }">
+    <label for="tags"
+    class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.post.columns.tags') }}</label>
+    <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+
+        <multiselect
+            v-model="form.tags"
+            :options="alltags"
+            :value="tags"
+            :multiple="true"
+            track-by="id"
+            label="name"
+            tag-placeholder="{{ __('Select post tags') }}"
+            placeholder="{{ __('post tags') }}">
+        </multiselect>
+
+        <div v-if="errors.has('tags')" class="form-control-feedback form-text" v-cloak>@{{
+            errors.first('tags') }}
         </div>
     </div>
 </div>
@@ -78,7 +102,8 @@
     <label for="perex" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.post.columns.perex') }}</label>
     <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <div>
-            <textarea class="form-control" rows="10" v-model="form.perex" v-validate="''" id="perex" name="perex"></textarea>
+            <!-- <textarea class="form-control" rows="10" v-model="form.perex" v-validate="''" id="perex" name="perex"></textarea> -->
+            <wysiwyg v-model="form.perex" v-validate="''" id="perex" name="perex" :config="mediaWysiwygConfig"></wysiwyg>
         </div>
         <div v-if="errors.has('perex')" class="form-control-feedback form-text" v-cloak>@{{ errors.first('perex') }}</div>
     </div>

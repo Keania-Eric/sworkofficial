@@ -73,6 +73,7 @@ return [
             'intro_text' => 'Intro text',
             'published_at' => 'Published at',
             'enabled' => 'Enabled',
+            'tags'=> 'Post Tag'
             
         ],
     ],
@@ -89,6 +90,27 @@ return [
         'columns' => [
             'id' => 'ID',
             'name' => 'Name',
+            
+        ],
+    ],
+
+    'tagging-tag' => [
+        'title' => 'Tagging Tags',
+
+        'actions' => [
+            'index' => 'Tagging Tags',
+            'create' => 'New Tagging Tag',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'slug' => 'Slug',
+            'name' => 'Name',
+            'suggest' => 'Suggest',
+            'count' => 'Count',
+            'tag_group_id' => 'Tag group',
+            'description' => 'Description',
             
         ],
     ],
