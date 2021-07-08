@@ -26,7 +26,7 @@ class BlogController extends Controller
 
     public function indexBySearch(Request $request)
     {
-        $query = $request->query('search');
+        $query = $request->search;
         $posts  = Post::published()->where('title', 'like', '%'.$query.'%')->latest()->paginate(6);
         return view('blog.search', ['posts'=> $posts, 'search'=> $query]);
     }

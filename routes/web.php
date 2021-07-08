@@ -31,7 +31,7 @@ Route::get('/project-management', [SiteController::class, 'projectManagement'])-
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/tag/{tag}', [BlogController::class, 'indexByTag'])->name('blog.index.tag');
 Route::get('/blog/category/{id}', [BlogController::class, 'indexByCategory'])->name('blog.index.category');
-Route::get('/blog/search', [BlogController::class, 'indexBySearch'])->name('blog.index.search');
+Route::post('/blog/search', [BlogController::class, 'indexBySearch'])->name('blog.index.search');
 Route::get('/blog/{slug}', [BlogController::class, 'single'])->name('blog.single');
 
 

@@ -55,9 +55,10 @@
               <div class="widget">
                 <h3 class="widget__title">Search</h3>
                 <div class="widget__search">
-                  <form action="./">
+                  <form action="{{route('blog.index.search')}}" method="POST">
+                    {{csrf_field()}}
                     <i class="fa fa-search text-royal-blue"></i>
-                    <input type="text" placeholder="Type to search">
+                    <input type="text" placeholder="Type to search" name="search">
                   </form>
                 </div>
               </div>
