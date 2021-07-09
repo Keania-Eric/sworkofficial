@@ -4,11 +4,11 @@
         <nav class="navbar site-navbar">
           <!-- Brand Logo-->
           <div class="brand-logo">
-            <a href="/home-marketing.html">
+            <a href="{{route('home')}}">
               <!-- light version logo (logo must be black)-->
-              <img src="image/png/logo-dark.png" alt="" class="light-version-logo">
+              <img src="{{asset('image/png/logo-dark.png')}}" alt="" class="light-version-logo">
               <!-- Dark version logo (logo must be White)-->
-              <img src="image/png/logo-white.png" alt="" class="dark-version-logo">
+              <img src="{{asset('image/png/logo-white.png')}}" alt="" class="dark-version-logo">
             </a>
           </div>
           <div class="menu-block-wrapper ">

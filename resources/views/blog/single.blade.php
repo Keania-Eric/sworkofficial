@@ -67,11 +67,11 @@
               <div class="widget">
                 <h3 class="widget__title">Recent Posts</h3>
                 <ul class="widget__recent-post list-unstyled mb-0 pb-0">
-                  @forelse($recentPosts as $post)
+                  @forelse($recentPosts as $recentPost)
                   <li class="widget__recent-post__single">
-                    <a href="{{route('blog.single', ['slug'=>$post->slug])}}">
-                      <h4 class="widget__recent-post__title">{{$post->title}}</h4>
-                      <p class="widget__recent-post__date">{{date('j F, Y,', strtotime($post->published_at))}}</p>
+                    <a href="{{route('blog.single', ['slug'=>$recentPost->slug])}}">
+                      <h4 class="widget__recent-post__title">{{$recentPost->title}}</h4>
+                      <p class="widget__recent-post__date">{{date('j F, Y,', strtotime($recentPost->published_at))}}</p>
                     </a>
                   </li>
                   @empty
@@ -124,88 +124,11 @@
               </h2>
             </div>
             <ul class="list-unstyled">
-              <!-- Single Comments -->
-              <li class="comment-meta-box__single">
-                <div class="comment-meta-box d-flex">
-                  <div class="comment-meta-box__author-img">
-                    <img src="./image/png/user-img-1.png" alt="">
-                  </div>
-                  <div class="comment-meta-box__content">
-                    <div class="comment-meta-box__user-info d-flex align-items-end justify-content-between mb-3">
-                      <div class="comment-meta-box__details">
-                        <a href="#" class="comment-meta-box__name">Brandon Howard</a>
-                        <div class="comment-meta-box__date-time">
-                          <a href="#" class="comment-meta-box__date">Jan 20, 2021 </a>|
-                          <a href="" class="comment-meta-box__time"> 24 minutes ago</a>
-                        </div>
-                      </div>
-                      <a class="btn-link comment-meta-box__reply-btn text-electric-violet-2" href="#">
-                        <i
-                                            class="fa fa-reply"></i> Reply</a>
-                    </div>
-                    <p class="comment-meta-box__text">OMG! I cannot believe that I have got a brand new
-                      landing page after getting
-                      Fastland. It
-                      was super easy to create, edit and publish.</p>
-                  </div>
-                </div>
-                <ul class="list-unstyled sub-comment-meta-box">
-                  <!-- Single Comments -->
-                  <li class="comment-meta-box__single">
-                    <div class="comment-meta-box d-flex">
-                      <div class="comment-meta-box__author-img">
-                        <img src="./image/png/user-img-2.png" alt="">
-                      </div>
-                      <div class="comment-meta-box__content">
-                        <div class="comment-meta-box__user-info d-flex align-items-end justify-content-between mb-3">
-                          <div class="comment-meta-box__details">
-                            <a href="#" class="comment-meta-box__name">Jennifer Ashley</a>
-                            <div class="comment-meta-box__date-time">
-                              <a href="#" class="comment-meta-box__date">Jan 20, 2021 </a>|
-                              <a href="" class="comment-meta-box__time"> 24 minutes ago</a>
-                            </div>
-                          </div>
-                          <a class="btn-link comment-meta-box__reply-btn text-electric-violet-2" href="#">
-                            <i class="fa fa-reply"></i> Reply</a>
-                        </div>
-                        <p class="comment-meta-box__text">OMG! I cannot believe that I have got a brand
-                          new landing page after getting
-                          Fastland. It
-                          was super easy to create, edit and publish.</p>
-                      </div>
-                    </div>
-                  </li>
-                  <!--/ .Single Comments -->
-                </ul>
-              </li>
-              <!--/ .Single Comments -->
-              <!-- Single Comments -->
-              <li class="comment-meta-box__single">
-                <div class="comment-meta-box d-flex">
-                  <div class="comment-meta-box__author-img">
-                    <img src="./image/png/user-img-3.png" alt="">
-                  </div>
-                  <div class="comment-meta-box__content">
-                    <div class="comment-meta-box__user-info d-flex align-items-end justify-content-between mb-3">
-                      <div class="comment-meta-box__details">
-                        <a href="#" class="comment-meta-box__name">Mark Ruffins</a>
-                        <div class="comment-meta-box__date-time">
-                          <a href="#" class="comment-meta-box__date">Jan 20, 2021 </a>|
-                          <a href="#" class="comment-meta-box__time"> 24 minutes ago</a>
-                        </div>
-                      </div>
-                      <a class="btn-link comment-meta-box__reply-btn text-electric-violet-2" href="#">
-                        <i
-                                            class="fa fa-reply"></i> Reply</a>
-                    </div>
-                    <p class="comment-meta-box__text">OMG! I cannot believe that I have got a brand new
-                      landing page after getting
-                      Fastland. It
-                      was super easy to create, edit and publish.</p>
-                  </div>
-                </div>
-              </li>
-              <!--/ .Single Comments -->
+               
+                @foreach($post->comments as $comment)
+                  @include('partials.comments', ['comment'=> $comment])
+                @endforeach
+              
             </ul>
           </div>
           <div class="col-xl-7 col-lg-7 mb-7 mb-lg-0">
@@ -215,23 +138,24 @@
                   Share your response
                 </h2>
               </div>
-              <form action="./" class="contact-form" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">
+              <form action="{{route('blog.comment', ['post'=> $post->id])}}" class="contact-form" method="POST" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">
+                {{csrf_field()}}
                 <div class="row">
                   <div class="col-lg-6 mb-4">
                     <div class="form-floating">
-                      <input class="form-control" placeholder="Leave a comment here" id="floatinginput" />
+                      <input class="form-control" placeholder="Leave a comment here" id="floatinginput" name="name" />
                       <label for="floatinginput">Your Name</label>
                     </div>
                   </div>
                   <div class="col-lg-6 mb-4">
                     <div class="form-floating">
-                      <input class="form-control" placeholder="Leave a comment here" id="floatinginput2" />
+                      <input class="form-control" placeholder="Leave a comment here" id="floatinginput2" name="email" />
                       <label for="floatinginput2">Your Email</label>
                     </div>
                   </div>
                   <div class="col-lg-12">
                     <div class="form-floating">
-                      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea3" style="height: 100px"></textarea>
+                      <textarea class="form-control" name="comment" placeholder="Leave a comment here" id="floatingTextarea3" style="height: 100px"></textarea>
                       <label for="floatingTextarea3">Type your comment.. </label>
                     </div>
                   </div>
@@ -247,7 +171,6 @@
                   </div>
                 </div>
               </form>
-            </div>
           </div>
         </div>
       </div>

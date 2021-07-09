@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use App\Trait\Commentable;
+use App\Models\PostComment;
 use App\Models\PostCategory;
 use Conner\Tagging\Taggable;
 use Spatie\MediaLibrary\HasMedia;
@@ -21,6 +23,7 @@ class Post extends Model implements HasMedia
     use HasMediaCollectionsTrait;
     use HasMediaThumbsTrait;
     use Taggable;
+    use Commentable;
 
 
     public function registerMediaCollections(): void {
@@ -76,6 +79,16 @@ class Post extends Model implements HasMedia
         'prev_post_url',
         'tags'
     ];
+    
+    /**
+     * Method comments
+     *
+     * @return void
+     */
+    public function comments()
+    {
+        return $this->morphMany(PostComment::class, 'commentable')->whereNull('parent_id');
+    }
 
     /* ************************ ACCESSOR ************************* */
 

@@ -22,13 +22,19 @@
   <!-- Vendor stylesheets  -->
   <link rel="stylesheet" href="{{asset('plugins/theme-mode-switcher/switcher-panel.css')}}">
   <link rel="stylesheet" href="{{asset('css/main.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <!-- Custom stylesheet -->
+
+
+  <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+  <script src="{{asset('plugins/jquery/jquery-migrate.min.js')}}"></script>
+  <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
 </head>
 
 <body data-theme-mode-panel-active data-theme="light">
   <div class="site-wrapper overflow-hidden ">
     <div id="loading">
-      <img src="image/preloader.gif" alt="">
+      <img src="{{asset('image/preloader.gif')}}" alt="">
     </div>
     <!-- Clean The Code And Hop in -->
     <!-- Header Area -->
@@ -47,9 +53,6 @@
     @include('partials.footer')
   </div>
   <!-- Plugin's Scripts -->
-  <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('plugins/jquery/jquery-migrate.min.js')}}"></script>
-  <script src="{{asset('js/bootstrap.bundle.js')}}"></script>
   <script src="{{asset('plugins/fancybox/jquery.fancybox.min.js')}}"></script>
   <script src="{{asset('plugins/nice-select/jquery.nice-select.min.js')}}"></script>
   <script src="{{asset('plugins/aos/aos.min.js')}}"></script>
@@ -62,6 +65,12 @@
   <!-- Activation Script -->
   <script src="{{asset('js/menu.js')}}"></script>
   <script src="{{asset('js/custom.js')}}"></script>
+
+  <!-- Toast alert -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+  @include('partials.alert')
 </body>
 
 </html>

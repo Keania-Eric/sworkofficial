@@ -710,3 +710,9 @@ $('.portfolio-menu').on('click', 'button', function() {
         filter: filterValue
     });
 });
+
+$('.collapse-toggler').on('click', function(){
+    var nodeId = $(this).attr('data-target');
+    var node = $('#'+nodeId)
+    node.hasClass('show') ? node.removeClass('show') : node.addClass('show');
+})

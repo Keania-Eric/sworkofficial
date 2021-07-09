@@ -33,7 +33,8 @@ Route::get('/blog/tag/{tag}', [BlogController::class, 'indexByTag'])->name('blog
 Route::get('/blog/category/{id}', [BlogController::class, 'indexByCategory'])->name('blog.index.category');
 Route::post('/blog/search', [BlogController::class, 'indexBySearch'])->name('blog.index.search');
 Route::get('/blog/{slug}', [BlogController::class, 'single'])->name('blog.single');
-
+Route::post('/blog/comment/{post}', [BlogController::class, 'comment'])->name('blog.comment');
+Route::post('/blog/reply/{id}', [BlogController::class, 'reply'])->name('blog.comment.reply');
 
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
