@@ -106,3 +106,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('site-images')->name('site-images/')->group(static function() {
+            Route::get('/',                                             'SiteImagesController@index')->name('index');
+            Route::get('/create',                                       'SiteImagesController@create')->name('create');
+            Route::post('/',                                            'SiteImagesController@store')->name('store');
+            Route::get('/{siteImage}/edit',                             'SiteImagesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'SiteImagesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{siteImage}',                                 'SiteImagesController@update')->name('update');
+            Route::delete('/{siteImage}',                               'SiteImagesController@destroy')->name('destroy');
+        });
+    });
+});

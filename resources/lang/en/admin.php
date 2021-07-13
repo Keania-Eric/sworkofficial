@@ -115,5 +115,24 @@ return [
         ],
     ],
 
+    'site-image' => [
+        'title' => 'Site Images',
+
+        'actions' => [
+            'index' => 'Site Images',
+            'create' => 'New Site Image',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            'slug' => 'Slug',
+            'width' => 'Width',
+            'height' => 'Height',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

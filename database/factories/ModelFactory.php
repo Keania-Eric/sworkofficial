@@ -73,3 +73,16 @@ $factory->define(App\Models\TaggingTag::class, static function (Faker\Generator 
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\SiteImage::class, static function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+        'slug' => $faker->unique()->slug,
+        'width' => $faker->sentence,
+        'height' => $faker->sentence,
+        'created_at' => $faker->dateTime,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});
