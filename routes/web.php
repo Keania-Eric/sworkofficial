@@ -168,3 +168,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('site-metas')->name('site-metas/')->group(static function() {
+            Route::get('/',                                             'SiteMetasController@index')->name('index');
+            Route::get('/create',                                       'SiteMetasController@create')->name('create');
+            Route::post('/',                                            'SiteMetasController@store')->name('store');
+            Route::get('/{siteMetum}/edit',                             'SiteMetasController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'SiteMetasController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{siteMetum}',                                 'SiteMetasController@update')->name('update');
+            Route::delete('/{siteMetum}',                               'SiteMetasController@destroy')->name('destroy');
+        });
+    });
+});

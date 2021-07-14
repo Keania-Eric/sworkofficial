@@ -187,5 +187,22 @@ return [
         ],
     ],
 
+    'site-meta' => [
+        'title' => 'Site Metas',
+
+        'actions' => [
+            'index' => 'Site Metas',
+            'create' => 'New Site Meta',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            'value' => 'Value',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

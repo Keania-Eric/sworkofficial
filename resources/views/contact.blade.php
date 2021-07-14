@@ -64,7 +64,7 @@
                   </div>
                   <div class="widget-body">
                     <h3 class="widget-body--title">visit us :</h3>
-                    <p>27 Division St, New York, <br class="d-block"> NY 10002, USA</p>
+                    <p>{{\App\Models\SiteMeta::findItem('our_location')->value}}</p>
                   </div>
                 </div>
                 <div class="widget widget--contact col-lg-12 col-sm-6 active">
@@ -73,7 +73,7 @@
                   </div>
                   <div class="widget-body">
                     <h3 class="widget-body--title">mail us :</h3>
-                    <p>phlox@mail.com <br class="d-block"> contact@mail.com</p>
+                    <p>{{\App\Models\SiteMeta::findItem('email')->value}}</p>
                   </div>
                 </div>
                 <div class="widget widget--contact col-lg-12 col-sm-6">
@@ -82,7 +82,7 @@
                   </div>
                   <div class="widget-body">
                     <h3 class="widget-body--title">call us :</h3>
-                    <p>+8 (123) 985 789 <br class="d-block"> +1 (123) 456 789</p>
+                    <p>{{\App\Models\SiteMeta::findItem('phone')->value}}</p>
                   </div>
                 </div>
               </div>

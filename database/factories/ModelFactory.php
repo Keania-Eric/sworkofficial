@@ -121,3 +121,14 @@ $factory->define(App\Models\Page::class, static function (Faker\Generator $faker
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\SiteMeta::class, static function (Faker\Generator $faker) {
+    return [
+        'created_at' => $faker->dateTime,
+        'name' => $faker->firstName,
+        'updated_at' => $faker->dateTime,
+        'value' => $faker->text(),
+        
+        
+    ];
+});

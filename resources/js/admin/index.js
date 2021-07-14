@@ -8,3 +8,4 @@ import './site-image';
 import './site-content';
 import './nav-item';
 import './page';
+import './site-meta';

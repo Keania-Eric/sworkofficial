@@ -26,7 +26,8 @@ class FillPagesDefaults extends Migration
             'marketting_project_management',
             'project_tour',
             'swork_status',
-            'terms'
+            'terms',
+            'privacy'
         ];
     }
 
