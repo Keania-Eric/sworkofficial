@@ -6,3 +6,4 @@ import './post-category';
 import './tagging-tag';
 import './site-image';
 import './site-content';
+import './nav-item';

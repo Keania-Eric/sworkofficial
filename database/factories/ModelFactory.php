@@ -98,3 +98,14 @@ $factory->define(App\Models\SiteContent::class, static function (Faker\Generator
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\NavItem::class, static function (Faker\Generator $faker) {
+    return [
+        'created_at' => $faker->dateTime,
+        'name' => $faker->firstName,
+        'slug' => $faker->unique()->slug,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

@@ -52,13 +52,13 @@
               <div class="feature-area--l2__tab" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
                 <ul class="nav nav-tabs nav-tab--feature-2" id="myTab" role="tablist">
                   <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Project Management</a>
+                    <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">{{\App\Models\NavItem::findItem('home_2_nav_1')->name}}</a>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Task Management</a>
+                    <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">{{\App\Models\NavItem::findItem('home_2_nav_2')->name}}</a>
                   </li>
                   <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Dark Mode</a>
+                    <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">{{\App\Models\NavItem::findItem('home_2_nav_3')->name}}</a>
                   </li>
                 </ul>
               </div>

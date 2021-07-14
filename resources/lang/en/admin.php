@@ -152,5 +152,22 @@ return [
         ],
     ],
 
+    'nav-item' => [
+        'title' => 'Nav Items',
+
+        'actions' => [
+            'index' => 'Nav Items',
+            'create' => 'New Nav Item',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'name' => 'Name',
+            'slug' => 'Slug',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
