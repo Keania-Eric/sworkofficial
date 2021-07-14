@@ -86,3 +86,15 @@ $factory->define(App\Models\SiteImage::class, static function (Faker\Generator $
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\SiteContent::class, static function (Faker\Generator $faker) {
+    return [
+        'content' => $faker->text(),
+        'created_at' => $faker->dateTime,
+        'slug' => $faker->unique()->slug,
+        'title' => $faker->sentence,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

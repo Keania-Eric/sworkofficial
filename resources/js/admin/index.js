@@ -5,3 +5,4 @@ import './post';
 import './post-category';
 import './tagging-tag';
 import './site-image';
+import './site-content';

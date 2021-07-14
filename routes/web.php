@@ -121,3 +121,18 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
         });
     });
 });
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('site-contents')->name('site-contents/')->group(static function() {
+            Route::get('/',                                             'SiteContentsController@index')->name('index');
+            Route::get('/create',                                       'SiteContentsController@create')->name('create');
+            Route::post('/',                                            'SiteContentsController@store')->name('store');
+            Route::get('/{siteContent}/edit',                           'SiteContentsController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'SiteContentsController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{siteContent}',                               'SiteContentsController@update')->name('update');
+            Route::delete('/{siteContent}',                             'SiteContentsController@destroy')->name('destroy');
+        });
+    });
+});

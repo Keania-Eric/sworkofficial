@@ -7,9 +7,9 @@
         <div class="row justify-content-center">
           <div class="col-xl-8 col-lg-11">
             <div class="welcome-content welcome-content--l2 text-center position-relative">
-              <h1 class="welcome-content--l2__heading" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">The intelligent way to manage projects.</h1>
-              <p class="welcome-content--l2__descriptions" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">Create custom landing pages with Fastland that<br class="d-none d-xs-block"> converts more
-                        visitors than any website.
+              <h1 class="welcome-content--l2__heading" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">{!! \App\Models\SiteContent::findItem('home_hero_content')->title !!}</h1>
+              <p class="welcome-content--l2__descriptions" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true"> 
+                {!! \App\Models\SiteContent::findItem('home_hero_content')->content !!}
               </p>
               <div class="welcome-content--l2-shape" data-aos="fade-right" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
                 <img class="w-100" src="{{asset('image/home-2/l2-hero-shape.png')}}" alt="">
@@ -87,8 +87,8 @@
                           <img src="{{asset('image/home-2/icon-grid.png')}}" alt="">
                         </div>
                         <div class="widget--feature-2__body">
-                          <h4 class="widget--feature-2__title">Manage Smartly</h4>
-                          <p class="widget--feature-2__content">Stay on top of your task lists and stay<br class='d-none d-xs-block'> in touch with what's happening</p>
+                          <h4 class="widget--feature-2__title">{!! \App\Models\SiteContent::findItem('home_2_tab_1_1')->title !!}</h4>
+                          <p class="widget--feature-2__content">{!! \App\Models\SiteContent::findItem('home_2_tab_1_1')->content !!}</p>
                         </div>
                       </div>
                       <!--/ .Single Feature Widgets -->
@@ -98,8 +98,8 @@
                           <img src="{{asset('image/home-2/icon-message.png')}}" alt="">
                         </div>
                         <div class="widget--feature-2__body">
-                          <h4 class="widget--feature-2__title">Communicate Fast</h4>
-                          <p class="widget--feature-2__content">Stay on top of your task lists and stay<br class='d-none d-xs-block'> in touch with what's happening</p>
+                          <h4 class="widget--feature-2__title">{!! \App\Models\SiteContent::findItem('home_2_tab_1_2')->title !!}</h4>
+                          <p class="widget--feature-2__content">{!! \App\Models\SiteContent::findItem('home_2_tab_1_2')->content !!}</p>
                         </div>
                       </div>
                       <!--/ .Single Feature Widgets -->
@@ -131,8 +131,8 @@
                           <img src="{{asset('image/home-2/icon-grid.png')}}" alt="">
                         </div>
                         <div class="widget--feature-2__body">
-                          <h4 class="widget--feature-2__title">Manage Smartly</h4>
-                          <p class="widget--feature-2__content">Stay on top of your task lists and stay<br class='d-none d-xs-block'> in touch with what's happening</p>
+                          <h4 class="widget--feature-2__title">{!! \App\Models\SiteContent::findItem('home_2_tab_2_1')->title !!}</h4>
+                          <p class="widget--feature-2__content">{!! \App\Models\SiteContent::findItem('home_2_tab_2_1')->content !!}</p>
                         </div>
                       </div>
                       <!--/ .Single Feature Widgets -->
@@ -142,8 +142,8 @@
                           <img src="{{asset('image/home-2/icon-message.png')}}" alt="">
                         </div>
                         <div class="widget--feature-2__body">
-                          <h4 class="widget--feature-2__title">Communicate Fast</h4>
-                          <p class="widget--feature-2__content">Stay on top of your task lists and stay<br class='d-none d-xs-block'> in touch with what's happening</p>
+                          <h4 class="widget--feature-2__title">{!! \App\Models\SiteContent::findItem('home_2_tab_2_2')->title !!}</h4>
+                          <p class="widget--feature-2__content">{!! \App\Models\SiteContent::findItem('home_2_tab_2_2')->content !!}</p>
                         </div>
                       </div>
                       <!--/ .Single Feature Widgets -->
@@ -175,8 +175,8 @@
                           <img src="{{asset('image/home-2/icon-grid.png')}}" alt="">
                         </div>
                         <div class="widget--feature-2__body">
-                          <h4 class="widget--feature-2__title">Manage Smartly</h4>
-                          <p class="widget--feature-2__content">Stay on top of your task lists and stay<br class='d-none d-xs-block'> in touch with what's happening</p>
+                          <h4 class="widget--feature-2__title">{!! \App\Models\SiteContent::findItem('home_2_tab_3_1')->title !!}</h4>
+                          <p class="widget--feature-2__content">{!! \App\Models\SiteContent::findItem('home_2_tab_3_1')->content !!}</p>
                         </div>
                       </div>
                       <!--/ .Single Feature Widgets -->
@@ -186,8 +186,8 @@
                           <img src="{{asset('image/home-2/icon-message.png')}}" alt="">
                         </div>
                         <div class="widget--feature-2__body">
-                          <h4 class="widget--feature-2__title">Communicate Fast</h4>
-                          <p class="widget--feature-2__content">Stay on top of your task lists and stay<br class='d-none d-xs-block'> in touch with what's happening</p>
+                          <h4 class="widget--feature-2__title">{!! \App\Models\SiteContent::findItem('home_2_tab_3_2')->title !!}</h4>
+                          <p class="widget--feature-2__content">{!! \App\Models\SiteContent::findItem('home_2_tab_3_2')->content !!}</p>
                         </div>
                       </div>
                       <!--/ .Single Feature Widgets -->
@@ -211,8 +211,8 @@
         <div class="row align-items-center justify-content-center justify-content-lg-start">
           <div class="col-xl-5 col-lg-6 col-md-8 col-xs-10 order-2 order-lg-1">
             <div class="content-texts content-texts--l2-1 text-center text-lg-start">
-              <h2 class="content-texts--l2-1__heading" data-aos="fade-right" data-aos-duration="500" data-aos-once="true">The intelligent<br class="d-none d-lg-block"> way to manage<br class="d-none d-lg-block"> any project.</h2>
-              <p class="content-texts--l2-1__content" data-aos="fade-right" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">Create custom landing pages with Fastland<br class="d-none d-xs-block"> that converts more visitors than any<br class="d-none d-xs-block"> website. Easy, Reliable & Fast.</p>
+              <h2 class="content-texts--l2-1__heading" data-aos="fade-right" data-aos-duration="500" data-aos-once="true">{!! \App\Models\SiteContent::findItem('home_3')->title !!}</h2>
+              <p class="content-texts--l2-1__content" data-aos="fade-right" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">{!! \App\Models\SiteContent::findItem('home_3')->content !!}</p>
               <div class="content-texts--l2-1__button">
                 <a class="btn-link--2 with--line border--primary" href="" data-aos="fade-right" data-aos-delay="500" data-aos-duration="500" data-aos-once="true">Get Started Now</a>
               </div>
@@ -245,8 +245,8 @@
             </div>
             <div class="col-xl-5 col-lg-6 col-md-8 col-xs-10">
               <div class="content-texts content-texts--l2-1 text-center text-lg-start">
-                <h2 class="content-texts--l2-1__heading" data-aos="fade-left" data-aos-duration="500" data-aos-once="true">Connect with<br class="d-none d-lg-block"> team members<br class="d-none d-lg-block"> with ease.</h2>
-                <p class="content-texts--l2-1__content" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">Create custom landing pages with Fastland<br class="d-none d-xs-block"> that converts more visitors than any<br class="d-none d-xs-block"> website. Easy, Reliable & Fast.</p>
+                <h2 class="content-texts--l2-1__heading" data-aos="fade-left" data-aos-duration="500" data-aos-once="true">{!! \App\Models\SiteContent::findItem('home_4')->title !!}</h2>
+                <p class="content-texts--l2-1__content" data-aos="fade-left" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">{!! \App\Models\SiteContent::findItem('home_4')->content !!}</p>
                 <div class="content-texts--l2-1__button" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
                   <a class="btn-link--2 with--line border--primary" href="">Get Started Now</a>
                 </div>
@@ -266,9 +266,8 @@
         <div class="row justify-content-center">
           <div class="col-xl-10">
             <div class="section-title--2 text-center">
-              <h2 class="section-title--2__heading" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">Software Integrations</h2>
-              <p class="section-title--2__description" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">Create custom landing pages with Fastland that converts <br class="d-none d-sm-block"> more
-                        visitors than any website.</p>
+              <h2 class="section-title--2__heading" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">{!! \App\Models\SiteContent::findItem('home_5')->title !!}</h2>
+              <p class="section-title--2__description" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">{!! \App\Models\SiteContent::findItem('home_5')->content !!}</p>
               <div class="section-title--2__button">
                 <a class="btn-link--2 with--line border--primary" href="" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400" data-aos-once="true">Explore All
                   Apps</a>

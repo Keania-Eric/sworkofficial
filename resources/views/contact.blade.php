@@ -9,9 +9,9 @@
             <div class="section-title section-title--l3 text-left mb-5 mb-md-7" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
               <h6 class="section-title__sub-heading">Contact Us</h6>
               <h2 class="section-title__heading mb-4">
-                Send A Message
+              {!! \App\Models\SiteContent::findItem('contact_post_1')->title !!}
               </h2>
-              <p class="section-title__description">When, while lovely valley teems with vapour around meand <br class="d-none d-xs-block"/> meridian the upper impenetrable.</p>
+              <p class="section-title__description">{!! \App\Models\SiteContent::findItem('contact_post_2')->content !!}</p>
             </div>
             <form action="./" class="contact-form" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300" data-aos-once="true">
               <div class="row">
@@ -54,8 +54,8 @@
           <div class="col-xl-4 offset-xl-1 col-lg-5" data-aos="fade-left" data-aos-duration="500" data-aos-delay="400" data-aos-once="true">
             <div class="contact-widget-box">
               <div class="contact-widget-box__title-block">
-                <h2 class="widget-box__title">Get In Touch</h2>
-                <p class="widget-box__paragraph">therefore always free from repetition, injected <br class="d-none d-xs-block d-lg-none d-xxl-block"> humour, or non-characteristic</p>
+                <h2 class="widget-box__title">{!! \App\Models\SiteContent::findItem('contact_post_2')->title !!}</h2>
+                <p class="widget-box__paragraph">{!! \App\Models\SiteContent::findItem('contact_post_2')->content !!}</p>
               </div>
               <div class="contact-widgets-wrapper row">
                 <div class="widget widget--contact col-lg-12 col-sm-6">

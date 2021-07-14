@@ -134,5 +134,23 @@ return [
         ],
     ],
 
+    'site-content' => [
+        'title' => 'Site Contents',
+
+        'actions' => [
+            'index' => 'Site Contents',
+            'create' => 'New Site Content',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'content' => 'Content',
+            'slug' => 'Slug',
+            'title' => 'Title',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];
