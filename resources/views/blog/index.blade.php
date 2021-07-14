@@ -19,7 +19,7 @@
           <div class="row justify-content-center">
             <div class="col-xl-12 col-lg-10">
               <div class="blogs-post blogs-post--big">
-                <img class="w-100" src="./image/png/blog-post-1.png" alt="">
+                <img class="w-100" src="{{\App\Models\SiteImage::findImage('blog_featured')}}" alt="">
                 <div class="hover-content">
                   <div class="hover-content__top d-flex align-items-center dark-mode-texts">
                     <a href="{{route('blog.single', ['slug'=>$featuredPost->slug])}}" class="hover-content__badge badge bg-primary">{{$featuredPost->category->name}}</a>

@@ -131,7 +131,7 @@ class SiteImagesController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
-
+       
         // Update changed values SiteImage
         $siteImage->update($sanitized);
 

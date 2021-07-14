@@ -12,7 +12,7 @@
                         visitors than any website.
               </p>
               <div class="welcome-content--l2-shape" data-aos="fade-right" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
-                <img class="w-100" src="./image/home-2/l2-hero-shape.png" alt="">
+                <img class="w-100" src="{{asset('image/home-2/l2-hero-shape.png')}}" alt="">
               </div>
             </div>
             <!-- Newsletter -->
@@ -30,16 +30,16 @@
           </div>
           <div class="col-lg-5 col-md-7" data-aos="fade-up" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
             <div class="welcome-image welcome-image--l2">
-              <img class="w-100" src="./image/home-2/l2-hero-image.png" alt="">
+              <img class="w-100" src="{{\App\Models\SiteImage::findImage('hero_1_image')}}" alt="">
             </div>
           </div>
         </div>
       </div>
       <div class="welcome-area--l2-shape-1" data-aos="fade-left" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
-        <img class="w-100" src="./image/home-2/l2-hero-shape-2.png" alt="">
+        <img class="w-100" src="{{asset('image/home-2/l2-hero-shape-2.png')}}" alt="">
       </div>
       <div class="welcome-area--l2-shape-2" data-aos="fade-right" data-aos-duration="500" data-aos-delay="500" data-aos-once="true">
-        <img class="w-100" src="./image/home-2/l2-hero-shape-1.png" alt="">
+        <img class="w-100" src="{{asset('image/home-2/l2-hero-shape-1.png')}}" alt="">
       </div>
     </div>
     <!--/ .Hero Area -->
@@ -69,9 +69,9 @@
               <div class="row align-items-center justify-content-center">
                 <div class="col-xl-6 col-lg-6 col-md-5 col-xs-10">
                   <div class="feature-area--l2__image-group">
-                    <img class="w-100" src="./image/home-2/l2-feature-img-1.png" alt="">
+                    <img class="w-100" src="{{\App\Models\SiteImage::findImage('home_2_project_management')}}" alt="">
                     <div class="feature-area--l2__image-group__img-1">
-                      <img src="./image/home-2/l2-feature-shape.png" alt="">
+                      <img src="{{asset('image/home-2/l2-feature-shape.png')}}" alt="">
                     </div>
                   </div>
                 </div>
@@ -84,7 +84,7 @@
                       <!-- Single Feature Widgets -->
                       <div class="widget widget--feature-2">
                         <div class="widget--feature-2__icon bg-coral">
-                          <img src="./image/home-2/icon-grid.png" alt="">
+                          <img src="{{asset('image/home-2/icon-grid.png')}}" alt="">
                         </div>
                         <div class="widget--feature-2__body">
                           <h4 class="widget--feature-2__title">Manage Smartly</h4>
@@ -95,7 +95,7 @@
                       <!-- Single Feature Widgets -->
                       <div class="widget widget--feature-2">
                         <div class="widget--feature-2__icon bg-java">
-                          <img src="./image/home-2/icon-message.png" alt="">
+                          <img src="{{asset('image/home-2/icon-message.png')}}" alt="">
                         </div>
                         <div class="widget--feature-2__body">
                           <h4 class="widget--feature-2__title">Communicate Fast</h4>
@@ -113,9 +113,9 @@
               <div class="row align-items-center justify-content-center">
                 <div class="col-xl-6 col-lg-6 col-md-5 col-xs-10">
                   <div class="feature-area--l2__image-group">
-                    <img class="w-100" src="./image/home-2/l2-feature-img-1.png" alt="">
+                    <img class="w-100" src="{{\App\Models\SiteImage::findImage('home_2_task_management')}}" alt="">
                     <div class="feature-area--l2__image-group__img-1">
-                      <img src="./image/home-2/l2-feature-shape.png" alt="">
+                      <img src="{{asset('image/home-2/l2-feature-shape.png')}}" alt="">
                     </div>
                   </div>
                 </div>
@@ -128,7 +128,7 @@
                       <!-- Single Feature Widgets -->
                       <div class="widget widget--feature-2">
                         <div class="widget--feature-2__icon bg-coral">
-                          <img src="./image/home-2/icon-grid.png" alt="">
+                          <img src="{{asset('image/home-2/icon-grid.png')}}" alt="">
                         </div>
                         <div class="widget--feature-2__body">
                           <h4 class="widget--feature-2__title">Manage Smartly</h4>
@@ -139,7 +139,7 @@
                       <!-- Single Feature Widgets -->
                       <div class="widget widget--feature-2">
                         <div class="widget--feature-2__icon bg-java">
-                          <img src="./image/home-2/icon-message.png" alt="">
+                          <img src="{{asset('image/home-2/icon-message.png')}}" alt="">
                         </div>
                         <div class="widget--feature-2__body">
                           <h4 class="widget--feature-2__title">Communicate Fast</h4>
@@ -157,9 +157,9 @@
               <div class="row align-items-center justify-content-center">
                 <div class="col-xl-6 col-lg-6 col-md-5 col-xs-10">
                   <div class="feature-area--l2__image-group">
-                    <img class="w-100" src="./image/home-2/l2-feature-img-1.png" alt="">
+                    <img class="w-100" src="{{\App\Models\SiteImage::findImage('home_2_dark_mode')}}" alt="">
                     <div class="feature-area--l2__image-group__img-1">
-                      <img src="./image/home-2/l2-feature-shape.png" alt="">
+                      <img src="{{asset('image/home-2/l2-feature-shape.png')}}" alt="">
                     </div>
                   </div>
                 </div>
@@ -172,7 +172,7 @@
                       <!-- Single Feature Widgets -->
                       <div class="widget widget--feature-2">
                         <div class="widget--feature-2__icon bg-coral">
-                          <img src="./image/home-2/icon-grid.png" alt="">
+                          <img src="{{asset('image/home-2/icon-grid.png')}}" alt="">
                         </div>
                         <div class="widget--feature-2__body">
                           <h4 class="widget--feature-2__title">Manage Smartly</h4>
@@ -183,7 +183,7 @@
                       <!-- Single Feature Widgets -->
                       <div class="widget widget--feature-2">
                         <div class="widget--feature-2__icon bg-java">
-                          <img src="./image/home-2/icon-message.png" alt="">
+                          <img src="{{asset('image/home-2/icon-message.png')}}" alt="">
                         </div>
                         <div class="widget--feature-2__body">
                           <h4 class="widget--feature-2__title">Communicate Fast</h4>
@@ -205,7 +205,7 @@
     <!-- Content One Area -->
     <div class="content-section content-section--l2-1 bg-default position-relative">
       <div class="content-section--l2-1__shape">
-        <img class="w-100" src="./image/home-2/l2-content-1-shape.png" alt="">
+        <img class="w-100" src="{{asset('image/home-2/l2-content-1-shape.png')}}" alt="">
       </div>
       <div class="container">
         <div class="row align-items-center justify-content-center justify-content-lg-start">
@@ -220,9 +220,9 @@
           </div>
           <div class="col-xl-7 col-lg-6 col-md-8 col-xs-10 order-1 order-lg-2">
             <div class="content-image-group content-image-group--l2-1">
-              <img class="w-100" src="./image/home-2/l2-content-img-1.png" alt="" data-aos="fade-left" data-aos-duration="500" data-aos-once="true">
+              <img class="w-100" src="{{\App\Models\SiteImage::findImage('home_3_image')}}" alt="" data-aos="fade-left" data-aos-duration="500" data-aos-once="true">
               <div class="content-image-group--l2-1__img-1">
-                <img class="w-100" src="./image/home-2/l2-content-shape-2.png" alt="" data-aos="fade-left" data-aos-delay="300" data-aos-duration="500" data-aos-once="true">
+                <img class="w-100" src="{{asset('image/home-2/l2-content-shape-2.png')}}" alt="" data-aos="fade-left" data-aos-delay="300" data-aos-duration="500" data-aos-once="true">
               </div>
             </div>
           </div>
@@ -237,9 +237,9 @@
           <div class="row align-items-center justify-content-center justify-content-lg-start">
             <div class="col-xl-7 col-lg-6 col-md-8 col-xs-10">
               <div class="content-image-group--l2-2">
-                <img class="w-100" src="./image/home-2/l2-content-img-2.png" alt="" data-aos="fade-right" data-aos-duration="500" data-aos-once="true">
+                <img class="w-100" src="{{\App\Models\SiteImage::findImage('home_4_image')}}" alt="" data-aos="fade-right" data-aos-duration="500" data-aos-once="true">
                 <div class="content-image-group--l2-2__img-1">
-                  <img class="w-100" src="./image/home-2/l2-content-2-shape-2.png" alt="" data-aos="fade-right" data-aos-duration="500" data-aos-once="true" data-aos-delay="300">
+                  <img class="w-100" src="{{asset('image/home-2/l2-content-2-shape-2.png')}}" alt="" data-aos="fade-right" data-aos-duration="500" data-aos-once="true" data-aos-delay="300">
                 </div>
               </div>
             </div>
@@ -256,7 +256,7 @@
         </div>
       </div>
       <div class="content-section--l2-2__shape-img">
-        <img class="w-100" src="./image/home-2/l2-content-2-shape.png" alt="">
+        <img class="w-100" src="{{asset('image/home-2/l2-content-2-shape.png')}}" alt="">
       </div>
     </div>
     <!--/ .Content Two Area -->
@@ -281,28 +281,28 @@
             <div class="brand-image-group brand-image-group--l2">
               <div class="brand-image-group--l2__image--main circle-126">
                 <div class="img-0">
-                  <img class="w-100" src="./image/home-2/brand-logo-1.png" alt="">
+                  <img class="w-100" src="{{asset('image/home-2/brand-logo-1.png')}}" alt="">
                 </div>
               </div>
               <!-- Image -->
               <div class="brand-image-group--l2__single brand-image-group--l2__img-1 circle-91">
                 <div class="brand-logo-1">
-                  <img class="w-100" src="./image/home-2/brand-logo-2.png" alt="">
+                  <img class="w-100" src="{{asset('image/home-2/brand-logo-2.png')}}" alt="">
                 </div>
               </div>
               <div class="brand-image-group--l2__single brand-image-group--l2__img-2 circle-103">
                 <div class="brand-logo-2">
-                  <img class="w-100" src="./image/home-2/brand-logo-3.png" alt="">
+                  <img class="w-100" src="{{asset('image/home-2/brand-logo-3.png')}}" alt="">
                 </div>
               </div>
               <div class="brand-image-group--l2__single brand-image-group--l2__img-3 circle-98">
                 <div class="brand-logo-3">
-                  <img class="w-100" src="./image/home-2/brand-logo-4.png" alt="">
+                  <img class="w-100" src="{{asset('image/home-2/brand-logo-4.png')}}" alt="">
                 </div>
               </div>
               <div class="brand-image-group--l2__single brand-image-group--l2__img-4 circle-99">
                 <div class="brand-logo-4">
-                  <img class="w-100" src="./image/home-2/brand-logo-5.png" alt="">
+                  <img class="w-100" src="{{asset('image/home-2/brand-logo-5.png')}}" alt="">
                 </div>
               </div>
               <div class="brand-image-group--l2__single brand-image-group--l2__img-5 circle-95">

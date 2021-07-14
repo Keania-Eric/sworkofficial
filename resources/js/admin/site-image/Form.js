@@ -10,7 +10,8 @@ Vue.component('site-image-form', {
                 width:  '' ,
                 height:  '' ,
                 
-            }
+            },
+            mediaCollections : ['site-Image']
         }
     }
 

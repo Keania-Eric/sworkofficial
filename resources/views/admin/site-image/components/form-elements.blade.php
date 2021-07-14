@@ -1,4 +1,4 @@
-<div class="form-group row align-items-center" :class="{'has-danger': errors.has('name'), 'has-success': fields.name && fields.name.valid }">
+<!-- <div class="form-group row align-items-center" :class="{'has-danger': errors.has('name'), 'has-success': fields.name && fields.name.valid }">
     <label for="name" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.site-image.columns.name') }}</label>
         <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
         <input type="text" v-model="form.name" v-validate="'required'" @input="validate($event)" class="form-control" :class="{'form-control-danger': errors.has('name'), 'form-control-success': fields.name && fields.name.valid}" id="name" name="name" placeholder="{{ trans('admin.site-image.columns.name') }}">
@@ -30,4 +30,10 @@
     </div>
 </div>
 
+ -->
 
+ @include('brackets/admin-ui::admin.includes.media-uploader', [
+    'mediaCollection' => app(App\Models\SiteImage::class)->getMediaCollection('site-Image'),
+    'media' => isset($siteImage) ?  $siteImage->getThumbs200ForCollection('site-Image'): null,
+    'label' => 'Image'
+])

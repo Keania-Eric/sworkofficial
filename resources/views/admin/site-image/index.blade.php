@@ -13,8 +13,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <i class="fa fa-align-justify"></i> {{ trans('admin.site-image.actions.index') }}
-                        <a class="btn btn-primary btn-spinner btn-sm pull-right m-b-0" href="{{ url('admin/site-images/create') }}" role="button"><i class="fa fa-plus"></i>&nbsp; {{ trans('admin.site-image.actions.create') }}</a>
+                    
                     </div>
                     <div class="card-body" v-cloak>
                         <div class="card-block">
@@ -51,8 +50,7 @@
 
                                         <th is='sortable' :column="'id'">{{ trans('admin.site-image.columns.id') }}</th>
                                         <th is='sortable' :column="'name'">{{ trans('admin.site-image.columns.name') }}</th>
-                                        <th is='sortable' :column="'width'">{{ trans('admin.site-image.columns.width') }}</th>
-                                        <th is='sortable' :column="'height'">{{ trans('admin.site-image.columns.height') }}</th>
+                                       
 
                                         <th></th>
                                     </tr>
@@ -78,17 +76,13 @@
 
                                     <td>@{{ item.id }}</td>
                                         <td>@{{ item.name }}</td>
-                                        <td>@{{ item.width }}</td>
-                                        <td>@{{ item.height }}</td>
                                         
                                         <td>
                                             <div class="row no-gutters">
                                                 <div class="col-auto">
                                                     <a class="btn btn-sm btn-spinner btn-info" :href="item.resource_url + '/edit'" title="{{ trans('brackets/admin-ui::admin.btn.edit') }}" role="button"><i class="fa fa-edit"></i></a>
                                                 </div>
-                                                <form class="col" @submit.prevent="deleteItem(item.resource_url)">
-                                                    <button type="submit" class="btn btn-sm btn-danger" title="{{ trans('brackets/admin-ui::admin.btn.delete') }}"><i class="fa fa-trash-o"></i></button>
-                                                </form>
+                                               
                                             </div>
                                         </td>
                                     </tr>
