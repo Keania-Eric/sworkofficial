@@ -109,3 +109,15 @@ $factory->define(App\Models\NavItem::class, static function (Faker\Generator $fa
         
     ];
 });
+/** @var  \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Page::class, static function (Faker\Generator $faker) {
+    return [
+        'content' => $faker->text(),
+        'created_at' => $faker->dateTime,
+        'name' => $faker->firstName,
+        'slug' => $faker->unique()->slug,
+        'updated_at' => $faker->dateTime,
+        
+        
+    ];
+});

@@ -169,5 +169,23 @@ return [
         ],
     ],
 
+    'page' => [
+        'title' => 'Pages',
+
+        'actions' => [
+            'index' => 'Pages',
+            'create' => 'New Page',
+            'edit' => 'Edit :name',
+        ],
+
+        'columns' => [
+            'id' => 'ID',
+            'content' => 'Content',
+            'name' => 'Name',
+            'slug' => 'Slug',
+            
+        ],
+    ],
+
     // Do not delete me :) I'm used for auto-generation
 ];

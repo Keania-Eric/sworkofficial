@@ -34,7 +34,11 @@ class FillSiteContentsDefaiult extends Migration
             'home_4',
             'home_5',
             'contact_post_1',
-            'contact_post_2'
+            'contact_post_2',
+            'api_docs',
+            'marketting_project_management',
+            'project_tour',
+            'swork_status'
         ];
     }
 

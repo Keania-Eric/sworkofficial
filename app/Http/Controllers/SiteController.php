@@ -13,6 +13,16 @@ class SiteController extends Controller
         return view('index');
     }
 
+    public function terms()
+    {
+        return view('terms');
+    }
+    
+    public function privacy()
+    {
+        return view('privacy');
+    }
+
     public function tour()
     {
         return view('product.tour');

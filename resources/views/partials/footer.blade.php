@@ -24,22 +24,20 @@
                     <h4 class="footer-widgets__title">Company</h4>
                     <ul class="footer-widgets__list">
                       <li>
-                        <a href="#">About
+                        <a href="{{route('product.tour')}}">About
                           us</a>
                       </li>
                       <li>
-                        <a href="#">Privacy
+                        <a href="{{route('privacy')}}">Privacy
                           Policy</a>
                       </li>
                       <li>
-                        <a href="#">Terms &
+                        <a href="{{route('terms')}}">Terms &
                           Conditions</a>
                       </li>
+                     
                       <li>
-                        <a href="#">Rider</a>
-                      </li>
-                      <li>
-                        <a href="#">Contact</a>
+                        <a href="{{route('contact')}}">Contact</a>
                       </li>
                     </ul>
                   </div>
