@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use App\Trait\Commentable;
+use App\Traits\Commentable;
 use App\Models\PostComment;
 use App\Models\PostCategory;
 use Conner\Tagging\Taggable;
